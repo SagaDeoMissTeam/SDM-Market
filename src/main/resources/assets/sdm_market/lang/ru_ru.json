@@ -1,0 +1,11 @@
+{
+  "sdm.market.buy.leftmoney": "Оставшийся баланс: %s",
+  "sdm.market.buy.title": "Вы хотите купить ?",
+  "sdm.market.create.button": "Создать Лот",
+  "sdm.market.lot.info.count": "Количество:",
+  "sdm.market.lot.info.owner": "Вы являетесь владельцем!",
+  "sdm.market.lot.info.price": "Цена:",
+  "sdm.market.lot.info.seller": "Продавец:",
+  "sdm.market.search.advanced": "Продвинутый",
+  "sdm.market.search.title": "Поиск"
+}
