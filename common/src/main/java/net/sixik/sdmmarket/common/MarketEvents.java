@@ -2,14 +2,11 @@ package net.sixik.sdmmarket.common;
 
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.PlayerEvent;
-import net.minecraft.server.level.ServerPlayer;
 import net.sixik.sdmmarket.common.data.MarketConfigData;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketFileManager;
-import net.sixik.sdmmarket.common.data.MarketUserData;
-import net.sixik.sdmmarket.common.market.user.MarketUserManager;
+import net.sixik.sdmmarket.common.data.MarketUserManager;
 import net.sixik.sdmmarket.common.network.user.SyncMarketDataS2C;
-import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
 
 public class MarketEvents {
 

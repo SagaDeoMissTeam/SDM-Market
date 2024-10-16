@@ -31,7 +31,7 @@ public class ItemMarketConfigEntry extends AbstractMarketConfigEntry{
     public boolean isAvailable(ItemStack itemStack1) {
         ItemStack d1 = itemStack1.copy();
 
-        if(ItemStack.isSameItem(d1, this.itemStack)) {
+        if(ItemStack.isSameItem(d1, this.itemStack) || ItemStack.matches(d1,this.itemStack)) {
             return true;
         }
 

@@ -6,12 +6,13 @@ import dev.architectury.networking.simple.MessageType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketPlayerData;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
-import net.sixik.sdmmarket.common.market.user.MarketUserManager;
+import net.sixik.sdmmarket.common.data.MarketUserManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 
@@ -43,17 +44,29 @@ public class CreateOfferC2S extends BaseC2SMessage {
         entry.deserialize(nbt);
 
         MarketUserCategory category = MarketUserManager.getCategoryByID(entry.categoryID);
-        if(category == null) return;
+        if(category == null) {
+            SDMMarket.LOGGER.error("Could not find category for entry " + entry.itemStack + " : " + entry.count);
+            return;
+        }
 
         MarketUserEntryList entryList = MarketUserManager.getEntryListByCategory(category, entry.itemStack);
-        if(entryList == null) return;
+        if(entryList == null) {
+            SDMMarket.LOGGER.error("Could not find entrylist for category " + category.categoryName);
+            return;
+        }
 
         MarketPlayerData.PlayerData data = MarketDataManager.getPlayerData(context.getPlayer().getServer(), context.getPlayer());
-        if(data == null) return;
+        if(data == null) {
+            SDMMarket.LOGGER.error("Could not find player data for player " + context.getPlayer());
+            return;
+        }
 
         entry.ownerID = data.playerID;
 
-        if(data.countOffers <= 0) return;
+        if(data.countOffers <= 0) {
+            SDMMarket.LOGGER.error("Player " + context.getPlayer() +  " has no more offers!");
+            return;
+        }
 
         MarketItemHelper.sellItem(context.getPlayer(), entry.count, entry.itemStack);
         entryList.addElement(entry);

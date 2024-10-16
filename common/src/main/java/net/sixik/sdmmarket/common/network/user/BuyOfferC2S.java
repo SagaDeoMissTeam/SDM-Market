@@ -10,7 +10,7 @@ import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
-import net.sixik.sdmmarket.common.market.user.MarketUserManager;
+import net.sixik.sdmmarket.common.data.MarketUserManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 
 import java.util.Objects;

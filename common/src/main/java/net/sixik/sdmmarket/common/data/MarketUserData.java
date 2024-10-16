@@ -3,7 +3,9 @@ package net.sixik.sdmmarket.common.data;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
+import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
 import net.sixik.sdmmarket.common.utils.INBTSerialize;
 import net.sixik.sdmmarket.common.utils.NBTUtils;
 
@@ -22,43 +24,66 @@ public class MarketUserData implements INBTSerialize {
     }
 
     public void copyFrom(MarketUserData other) {
-        if(this.categories.isEmpty()) {
+        // Если в текущих данных нет категорий, просто копируем все категории из other
+        if (this.categories.isEmpty()) {
             this.categories.addAll(other.categories);
+            return;
         }
 
+        // Идем по текущим категориям и обновляем их или удаляем, если нет записей
         var iterator = this.categories.iterator();
-
         while (iterator.hasNext()) {
             MarketUserCategory category = iterator.next();
 
-            boolean find = false;
-            for (MarketUserCategory marketUserCategory : other.categories) {
-                if(category.categoryID.equals(marketUserCategory.categoryID)) {
-                    find = true;
+            // Поиск категории в другой UserData
+            boolean found = false;
+            for (MarketUserCategory otherCategory : other.categories) {
+                if (category.categoryID.equals(otherCategory.categoryID)) {
+                    found = true;
+                    // Обновляем имя категории
+                    category.categoryName = otherCategory.categoryName;
+
+                    // Если записи пусты, копируем все записи из другой категории
+                    if (category.entries.isEmpty()) {
+                        category.entries.addAll(otherCategory.entries);
+                    } else {
+                        // Проверяем и добавляем только отсутствующие записи
+                        for (MarketUserEntryList otherEntry : otherCategory.entries) {
+                            boolean entryExists = false;
+                            for (MarketUserEntryList currentEntry : category.entries) {
+                                if (ItemStack.isSameItem(otherEntry.itemStack, currentEntry.itemStack)) {
+                                    entryExists = true;
+                                    break;
+                                }
+                            }
+                            if (!entryExists) {
+                                category.entries.add(otherEntry);
+                            }
+                        }
+                    }
                     break;
                 }
             }
 
-            if(!find && category.entries.isEmpty()) {
+            // Удаляем категорию, если она не найдена и пустая
+            if (!found && category.entries.isEmpty()) {
                 iterator.remove();
             }
         }
 
-        iterator = other.categories.iterator();
-
-        while (iterator.hasNext()){
-            MarketUserCategory category = iterator.next();
-
-            boolean find = false;
-            for (MarketUserCategory marketUserCategory : this.categories) {
-                if(category.categoryID.equals(marketUserCategory.categoryID)) {
-                    find = true;
+        // Теперь добавляем новые категории, которых нет в текущих данных
+        for (MarketUserCategory otherCategory : other.categories) {
+            boolean found = false;
+            for (MarketUserCategory currentCategory : this.categories) {
+                if (otherCategory.categoryID.equals(currentCategory.categoryID)) {
+                    found = true;
                     break;
                 }
             }
 
-            if(!find) {
-                this.categories.add(category);
+            // Если категория не найдена, добавляем её
+            if (!found) {
+                this.categories.add(otherCategory);
             }
         }
     }

@@ -8,7 +8,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.sixik.sdmmarket.common.data.MarketConfigData;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
-import net.sixik.sdmmarket.common.market.user.MarketUserManager;
+import net.sixik.sdmmarket.common.data.MarketUserManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 import net.sixik.sdmmarket.common.network.user.SyncMarketDataS2C;
 

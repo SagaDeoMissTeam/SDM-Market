@@ -8,7 +8,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketPlayerData;
 import net.sixik.sdmmarket.common.market.basketEntry.AbstractBasketEntry;
-import net.sixik.sdmmarket.common.market.user.MarketUserManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
 import net.sixik.sdmmarket.common.network.user.UpdateUIS2C;

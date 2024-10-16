@@ -4,10 +4,9 @@ import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.Theme;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
-import net.sixik.sdmmarket.common.market.user.MarketUserManager;
+import net.sixik.sdmmarket.common.data.MarketUserManager;
 import net.sixik.v2.color.RGBA;
 import net.sixik.v2.render.TextRenderHelper;
 

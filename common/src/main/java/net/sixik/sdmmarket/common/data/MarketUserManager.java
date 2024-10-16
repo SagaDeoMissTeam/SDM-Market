@@ -1,17 +1,16 @@
-package net.sixik.sdmmarket.common.market.user;
+package net.sixik.sdmmarket.common.data;
 
 import dev.ftb.mods.ftblibrary.icon.ItemIcon;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.sixik.sdmmarket.common.data.MarketConfigData;
-import net.sixik.sdmmarket.common.data.MarketDataManager;
-import net.sixik.sdmmarket.common.data.MarketPlayerData;
-import net.sixik.sdmmarket.common.data.MarketUserData;
 import net.sixik.sdmmarket.common.market.config.AbstractMarketConfigEntry;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
 import net.sixik.sdmmarket.common.market.offer.OfferCreateData;
+import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
+import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
+import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
 import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
 import org.jetbrains.annotations.Nullable;
 
@@ -65,7 +64,7 @@ public class MarketUserManager {
         for (MarketUserEntryList entry : category.entries) {
             if(entry.itemStack.hasTag() && ItemStack.isSameItemSameTags(itemStack, entry.itemStack)) {
                 return entry;
-            } else if(!entry.itemStack.hasTag() && ItemStack.isSameItem(itemStack, entry.itemStack)){
+            } else if(!entry.itemStack.hasTag() && (ItemStack.isSameItem(itemStack, entry.itemStack) || ItemStack.matches(itemStack, entry.itemStack))){
                 return entry;
             }
         }

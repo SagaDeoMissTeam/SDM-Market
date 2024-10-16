@@ -176,18 +176,23 @@ public class SellingMainUserPanel extends Panel {
                 @Override
                 public void onClicked(MouseButton button) {
                     if(button.isLeft()) {
-                        MarketUserEntry entry = new MarketUserEntry(panel.selectable.configCategory.categoryID);
-                        entry.itemStack = panel.selectable.selectedItem.copy();
-                        entry.price = priceSell;
-                        entry.count = countSell;
-                        entry.ownerID = Minecraft.getInstance().player.getGameProfile().getId();
-                        new CreateOfferC2S(entry.serialize()).sendToServer();
+                        try {
+                            MarketUserEntry entry = new MarketUserEntry(panel.selectable.configCategory.categoryID);
+                            entry.itemStack = panel.selectable.selectedItem.copy();
+                            entry.price = priceSell;
+                            entry.count = countSell;
+                            entry.ownerID = Minecraft.getInstance().player.getGameProfile().getId();
+                            new CreateOfferC2S(entry.serialize()).sendToServer();
 
-                        ((SellingUserScreen)getGui()).mainUserPanel.priceSell = 0;
-                        ((SellingUserScreen)getGui()).mainUserPanel.countItems = 0;
-                        ((SellingUserScreen)getGui()).mainUserPanel.countSell = 0;
-                        ((SellingUserScreen)getGui()).sellingPanel.addSellableItems();
-                        ((SellingUserScreen)getGui()).mainUserPanel.recreate();
+                            ((SellingUserScreen) getGui()).mainUserPanel.priceSell = 0;
+                            ((SellingUserScreen) getGui()).mainUserPanel.countItems = 0;
+                            ((SellingUserScreen) getGui()).mainUserPanel.countSell = 0;
+                            ((SellingUserScreen) getGui()).sellingPanel.addSellableItems();
+                            ((SellingUserScreen) getGui()).mainUserPanel.recreate();
+
+                        } catch (Exception e) {
+                            SDMMarket.printStackTrace("", e);
+                        }
 
                         getGui().closeGui();
                     }

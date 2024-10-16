@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MarketUserCategory implements INBTSerialize {
 
@@ -19,7 +20,7 @@ public class MarketUserCategory implements INBTSerialize {
     public ItemStack icon = Items.BARRIER.getDefaultInstance();
     public String categoryName;
 
-    public List<MarketUserEntryList> entries = new ArrayList<>();
+    public CopyOnWriteArrayList<MarketUserEntryList> entries = new CopyOnWriteArrayList<>();
 
     public MarketUserCategory() {
         this(UUID.randomUUID(), "");
