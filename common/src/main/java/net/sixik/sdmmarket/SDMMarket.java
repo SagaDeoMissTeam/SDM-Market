@@ -1,9 +1,11 @@
 package net.sixik.sdmmarket;
 
 import com.mojang.logging.LogUtils;
+import dev.architectury.event.events.common.CommandRegistrationEvent;
 import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.sixik.sdmmarket.common.MarketEvents;
+import net.sixik.sdmmarket.common.commands.MarketCommands;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 import net.sixik.sdmmarket.common.register.ItemsRegister;
 import org.slf4j.Logger;
@@ -17,6 +19,8 @@ public class SDMMarket
 		MarketNetwork.init();
 		ItemsRegister.ITEMS.register();
 		MarketEvents.init();
+
+		CommandRegistrationEvent.EVENT.register(MarketCommands::registerCommands);
 
 		EnvExecutor.runInEnv(Env.CLIENT, () -> SDMMarketClient::init);
 	}

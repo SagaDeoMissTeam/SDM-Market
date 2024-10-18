@@ -44,5 +44,8 @@
   "market_global_config" : "Market Global Configuration",
   "market_global_config.sellAnyItems" : "Sell Any Items",
   "market_global_config.sellAnyItems.tooltip" : "It will allow players to put up for sale any items, but you cannot control their amount and category. \nIf you do not have a Misc category, restart the server",
-  "market_global_config.maxOffersForPlayer" : "Max offers For Player"
+  "market_global_config.maxOffersForPlayer" : "Max offers For Player",
+  "market_global_config.disableKeyBinding" : "Disable Key bindings",
+  "sdm.market.user.search.isenchantable" : "With Enchantment",
+  "sdm.market.user.search.isnodamaged" : "Without Damage"
 }

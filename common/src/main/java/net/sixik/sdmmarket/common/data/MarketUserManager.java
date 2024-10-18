@@ -14,6 +14,7 @@ import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
 import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
+import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -62,20 +63,24 @@ public class MarketUserManager {
 
     @Nullable
     public static MarketUserEntryList getEntryListByCategory(MarketUserCategory category, ItemStack itemStack) {
+        ItemStack j = itemStack.copy();
+        j.setDamageValue(0);
+
         for (MarketUserEntryList entry : category.entries) {
-            if(entry.itemStack.hasTag() && ItemStack.isSameItemSameTags(itemStack, entry.itemStack)) {
-                return entry;
-            } else if(!entry.itemStack.hasTag() && (ItemStack.isSameItem(itemStack, entry.itemStack) || ItemStack.matches(itemStack, entry.itemStack))){
+            if(MarketItemHelper.isEquals(j, entry.itemStack)) {
                 return entry;
             }
         }
 
         if(MarketDataManager.GLOBAL_CONFIG_SERVER != null && MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
-            if(category instanceof MarketUserAnyCategory anyCategory){
+            if(Objects.equals(category.categoryID.toString(), "619a4773-efd4-46e5-97c5-5ce1ce2da517")){
                 MarketUserEntryList entryList = new MarketUserEntryList();
-                entryList.itemStack = itemStack;
+                entryList.itemStack = j;
                 category.addEntry(entryList);
-                return entryList;
+                for (MarketUserEntryList entry : category.entries) {
+                    if(MarketItemHelper.isEquals(j, entry.itemStack))
+                        return entry;
+                }
             }
         }
 
@@ -204,11 +209,11 @@ public class MarketUserManager {
             }
 
             userData.categories.add(userCategory);
+        }
 
-            if(MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
-                MarketUserAnyCategory anyCategory = new MarketUserAnyCategory();
-                userData.categories.add(anyCategory);
-            }
+        if(MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
+            MarketUserAnyCategory anyCategory = new MarketUserAnyCategory();
+            userData.categories.add(anyCategory);
         }
 
         toUserData.copyFrom(userData);
@@ -235,20 +240,8 @@ public class MarketUserManager {
     }
 
     public static boolean isContains(List<ItemStack> list, ItemStack itemStack){
-        ItemStack f1 = itemStack.copy();
-        f1.setCount(1);
         for (ItemStack stack : list) {
-            ItemStack d = stack.copy();
-            d.setCount(1);
-            if(ItemStack.matches(d, f1)) {
-                return true;
-            }
-
-            if(f1.hasTag() && ItemStack.isSameItemSameTags(f1, d)) {
-                return true;
-            }
-
-            if(!f1.hasTag() && !d.hasTag() && ItemStack.isSameItem(f1, d)){
+            if(MarketItemHelper.isEquals(itemStack.copy(), stack.copy())) {
                 return true;
             }
         }

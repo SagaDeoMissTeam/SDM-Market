@@ -12,6 +12,8 @@ public class SearchData {
     public static int countFrom = 0;
     public static int countTo = 0;
     public static List<UUID> selectedCategories = new ArrayList<UUID>();
+    public static boolean isEncantable = false;
+    public static boolean isNoDamaged = false;
 
 
 
@@ -22,6 +24,8 @@ public class SearchData {
         priceTo = 0;
         countFrom = 0;
         countTo = 0;
+        isEncantable = false;
+        isNoDamaged = false;
         selectedCategories.clear();
     }
 

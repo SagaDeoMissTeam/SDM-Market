@@ -36,9 +36,7 @@ public class SellingInventorySlotPanel extends Panel {
         List<ItemStack> items = MarketUserManager.getAvaliableItems(Minecraft.getInstance().player, MarketDataManager.CONFIG_CLIENT);
 
         for (ItemStack item : items) {
-            ItemStack f = item.copy();
-            f.setCount(1);
-            SellingItemButton button = new SellingItemButton(this, f);
+            SellingItemButton button = new SellingItemButton(this, item.copyWithCount(1));
             button.setSize(this.width - 6, TextRenderHelper.getTextHeight() + 1);
             itemButtons.add(button);
         }

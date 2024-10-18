@@ -45,6 +45,10 @@ public class MarketUserEntry implements INBTSerialize {
     }
 
     public boolean isVisiable() {
+
+        if(SearchData.isEncantable && !itemStack.isEnchanted()) return false;
+        if(SearchData.isNoDamaged && itemStack.isDamaged()) return false;
+
         if(SearchData.priceFrom <= 0 || price >= SearchData.priceFrom) {
             if(SearchData.priceTo <= 0 || price <= SearchData.priceTo) {
 

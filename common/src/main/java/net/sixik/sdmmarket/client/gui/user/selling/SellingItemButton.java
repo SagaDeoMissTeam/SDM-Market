@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketUserManager;
+import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 import net.sixik.v2.color.RGBA;
 
 public class SellingItemButton extends SimpleTextButton {
@@ -27,6 +28,7 @@ public class SellingItemButton extends SimpleTextButton {
     @Override
     public void onClicked(MouseButton button) {
         if(button.isLeft()) {
+
             ((SellingUserScreen)getGui()).selectable.selectedItem = itemStack.copy();
             ((SellingUserScreen)getGui()).selectable.configCategory = MarketUserManager.getCategoryForItem(itemStack.copy(), MarketDataManager.CONFIG_CLIENT);
             ((SellingUserScreen)getGui()).selectable.entry = MarketUserManager.getEntryForItem(itemStack.copy(), MarketDataManager.CONFIG_CLIENT, ((SellingUserScreen)getGui()).selectable.configCategory);
@@ -47,7 +49,7 @@ public class SellingItemButton extends SimpleTextButton {
 
     public boolean isSelected() {
         if(((SellingUserScreen)getGui()).selectable.selectedItem.isEmpty()) return false;
-        return ItemStack.isSameItemSameTags(((SellingUserScreen)getGui()).selectable.selectedItem.copy(), itemStack.copy());
+        return MarketItemHelper.isEquals(itemStack.copy(), ((SellingUserScreen)getGui()).selectable.selectedItem.copy());
     }
 
     @Override

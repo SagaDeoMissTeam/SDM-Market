@@ -9,6 +9,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
+import net.sixik.sdmmarket.common.data.MarketDataManager;
 import org.lwjgl.glfw.GLFW;
 
 public class SDMMarketClient {
@@ -28,13 +29,13 @@ public class SDMMarketClient {
 
 
     public static void keyInput(Minecraft mc) {
-        if (MARKET_KEY.consumeClick()) {
+        if (MARKET_KEY.consumeClick() && !MarketDataManager.GLOBAL_CONFIG_CLIENT.disableKeyBinding) {
             new MarketUserScreen().openGui();
         }
     }
 
     public static EventResult customClick(CustomClickEvent event) {
-        if (event.id().equals(OPEN_GUI)) {
+        if (event.id().equals(OPEN_GUI) && !MarketDataManager.GLOBAL_CONFIG_CLIENT.disableKeyBinding) {
             new MarketUserScreen().openGui();
             return EventResult.interruptTrue();
         }

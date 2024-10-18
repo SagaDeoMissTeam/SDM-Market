@@ -7,6 +7,7 @@ import net.sixik.sdmmarket.common.network.admin.*;
 import net.sixik.sdmmarket.common.network.admin.config.EditMarketConfigC2S;
 import net.sixik.sdmmarket.common.network.admin.config.InvokeMarketEditC2S;
 import net.sixik.sdmmarket.common.network.admin.config.SyncMarketConfigS2C;
+import net.sixik.sdmmarket.common.network.misc.SendOpenMarketScreenS2C;
 import net.sixik.sdmmarket.common.network.user.*;
 import net.sixik.sdmmarket.common.network.user.basket.TakeBasketEntryC2S;
 
@@ -23,6 +24,8 @@ public class MarketNetwork {
     public static final MessageType SYNC_MARKET_CONFIG = NET.registerS2C("sync_market_config", SyncMarketConfigS2C::new);
     public static final MessageType EDIT_MARKET_CONFIG = NET.registerC2S("edit_market_config", EditMarketConfigC2S::new);
     public static final MessageType OPEN_MARKET_CONFIG = NET.registerC2S("open_market_config", InvokeMarketEditC2S::new);
+
+    public static final MessageType OPEN_MARKET_SCREEN = NET.registerS2C("open_market_screen", SendOpenMarketScreenS2C::new);
 
     public static final MessageType SYNC_MARKET_DATA = NET.registerS2C("sync_market_data", SyncMarketDataS2C::new);
     public static final MessageType UPDATE_UI = NET.registerS2C("update_ui", UpdateUIS2C::new);

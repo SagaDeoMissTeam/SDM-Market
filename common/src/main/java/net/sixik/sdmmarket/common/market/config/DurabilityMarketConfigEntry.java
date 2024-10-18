@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.register.CustomIconItem;
 import net.sixik.sdmmarket.common.register.ItemsRegister;
+import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 import net.sixik.sdmmarket.common.utils.NBTUtils;
 
 import java.util.UUID;
@@ -45,15 +46,7 @@ public class DurabilityMarketConfigEntry extends AbstractMarketConfigEntry{
             return false;
         }
 
-        if(itemStack.hasTag() && ItemStack.isSameItemSameTags(d1, this.itemStack)) {
-            return true;
-        }
-
-        if(ItemStack.isSameItem(d1, this.itemStack)) {
-            return true;
-        }
-
-        return false;
+        return MarketItemHelper.isEquals(d1, this.itemStack);
     }
 
     @Override

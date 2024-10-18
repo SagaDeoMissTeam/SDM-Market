@@ -12,6 +12,7 @@ import net.sixik.sdm_economy.api.CurrencyHelper;
 import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.client.SearchData;
 import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
+import net.sixik.sdmmarket.client.widgets.MarketCheckBox;
 import net.sixik.sdmmarket.client.widgets.MarketTextBox;
 import net.sixik.sdmmarket.client.widgets.MarketTextField;
 import net.sixik.v2.color.Colors;
@@ -29,6 +30,8 @@ public class SearchPanel extends Panel {
     public PanelScrollBar scrollCategoriesPanel;
     public Button resetButton;
     public MarketTextField moneyField;
+    public MarketCheckBox isEcnabledCheckBox;
+    public MarketCheckBox isNoDamageCheckBox;
 
     public TextBox minCountBox;
     public TextBox maxCountBox;
@@ -238,6 +241,28 @@ public class SearchPanel extends Panel {
         add(moneyField = new MarketTextField(this));
         moneyField.setText(SDMMarket.moneyString(CurrencyHelper.Basic.getMoney(Minecraft.getInstance().player)));
 
+        add(isEcnabledCheckBox = new MarketCheckBox(this){
+            @Override
+            public void onClicked(MouseButton button) {
+                super.onClicked(button);
+                SearchData.isEncantable = isChecked;
+                ((MarketUserScreen)getGui()).refreshEntries();
+            }
+        });
+        isEcnabledCheckBox.setSelected(SearchData.isEncantable);
+        this.isEcnabledCheckBox.setTitle(Component.translatable("sdm.market.user.search.isenchantable"));
+
+        add(isNoDamageCheckBox = new MarketCheckBox(this){
+            @Override
+            public void onClicked(MouseButton button) {
+                super.onClicked(button);
+                SearchData.isNoDamaged = isChecked;
+                ((MarketUserScreen)getGui()).refreshEntries();
+            }
+        });
+        isNoDamageCheckBox.setSelected(SearchData.isNoDamaged);
+        this.isNoDamageCheckBox.setTitle(Component.translatable("sdm.market.user.search.isnodamaged"));
+
         searchBox.setText(SearchData.name);
         searchBox.ghostText = Component.translatable("sdm.market.user.search.ghost_text").getString();
         minPriceBox.setText(SearchData.priceFrom > 0 ? String.valueOf(SearchData.priceFrom) : "");
@@ -289,6 +314,11 @@ public class SearchPanel extends Panel {
         this.moneyField.setPos(4, this.height - (TextRenderHelper.getTextHeight() + 3));
 
         categoriesPanel.alignWidgets();
+
+        this.isEcnabledCheckBox.setPos(4, categoriesPanel.posY + categoriesPanel.height + 2);
+        this.isEcnabledCheckBox.setSize(this.width - 8, TextRenderHelper.getTextHeight() + 1);
+        this.isNoDamageCheckBox.setPos(4, isEcnabledCheckBox.posY + isEcnabledCheckBox.height + 2);
+        this.isNoDamageCheckBox.setSize(this.width - 8, TextRenderHelper.getTextHeight() + 1);
 
         this.scrollCategoriesPanel.setPosAndSize(
                 this.categoriesPanel.getPosX() + this.categoriesPanel.getWidth() - this.getScrollbarWidth(),

@@ -68,6 +68,8 @@ public class CreateOfferC2S extends BaseC2SMessage {
             return;
         }
 
+        System.out.println(entry.itemStack.toString() + "  " + entry.itemStack.getTag());
+
         MarketItemHelper.sellItem(context.getPlayer(), entry.count, entry.itemStack);
         entryList.addElement(entry);
         data.countOffers -= 1;

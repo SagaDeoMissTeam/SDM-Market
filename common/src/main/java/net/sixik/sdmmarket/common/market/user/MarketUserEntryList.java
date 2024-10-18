@@ -93,6 +93,16 @@ public class MarketUserEntryList implements INBTSerialize {
         return i;
     }
 
+    public boolean hasEnchantments() {
+        if(itemStack.isEnchantable()) return false;
+
+        for (MarketUserEntry entry : entries) {
+            if(entry.itemStack.isEnchanted()) return true;
+        }
+
+        return false;
+    }
+
     @Override
     public CompoundTag serialize() {
         CompoundTag nbt = new CompoundTag();

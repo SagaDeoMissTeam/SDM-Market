@@ -38,6 +38,8 @@ public class EntriesPanel extends Panel {
                 for (MarketUserEntryList entry : category.entries) {
                     if(entry.entries.isEmpty()) continue;
 
+                    if(SearchData.isEncantable && !entry.hasEnchantments()) continue;
+
                     if(
                             (SearchData.priceFrom <= 0 || SearchData.priceFrom >= entry.getMinPrice()) &&
                             (SearchData.priceTo <= 0 || SearchData.priceTo <= entry.getMaxPrice())

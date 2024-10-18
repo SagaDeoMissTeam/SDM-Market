@@ -16,6 +16,7 @@ import net.sixik.sdmmarket.client.widgets.MarketTextField;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
 import net.sixik.sdmmarket.common.network.user.CreateOfferC2S;
+import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 import net.sixik.v2.color.RGBA;
 import net.sixik.v2.render.TextRenderHelper;
 
@@ -86,13 +87,7 @@ public class SellingMainUserPanel extends Panel {
 
             add(canBeSell = new MarketTextField(this));
 
-            countItems = 0;
-            Inventory inventory = Minecraft.getInstance().player.getInventory();
-            for (int i = 0; i < inventory.getContainerSize(); i++) {
-                if(inventory.getItem(i).copy().is(panel.selectable.selectedItem.copy().getItem()) && Objects.equals(inventory.getItem(i).copy().getTag(), panel.selectable.selectedItem.copy().getTag())) {
-                    countItems += inventory.getItem(i).copy().getCount();
-                }
-            }
+            countItems = MarketItemHelper.countItems(Minecraft.getInstance().player, panel.selectable.selectedItem.copy());
 
             canBeSell.setText(Component.translatable("sdm.market.user.create.can_sell", countItems));
             canBeSell.setWidth(this.width - 8);

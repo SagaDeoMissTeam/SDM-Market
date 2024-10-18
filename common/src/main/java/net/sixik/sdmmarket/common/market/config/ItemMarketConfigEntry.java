@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.register.CustomIconItem;
 import net.sixik.sdmmarket.common.register.ItemsRegister;
+import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 import net.sixik.sdmmarket.common.utils.NBTUtils;
 
 import java.util.UUID;
@@ -29,13 +30,7 @@ public class ItemMarketConfigEntry extends AbstractMarketConfigEntry{
 
     @Override
     public boolean isAvailable(ItemStack itemStack1) {
-        ItemStack d1 = itemStack1.copy();
-
-        if(ItemStack.isSameItem(d1, this.itemStack) || ItemStack.matches(d1,this.itemStack)) {
-            return true;
-        }
-
-        return false;
+        return MarketItemHelper.isEquals(itemStack1.copy(), this.itemStack.copy());
     }
 
     @Override

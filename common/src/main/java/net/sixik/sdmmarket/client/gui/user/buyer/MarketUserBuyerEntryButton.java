@@ -51,6 +51,10 @@ public class MarketUserBuyerEntryButton extends SimpleTextButton {
 
         entry.itemStack.getTooltipLines(Minecraft.getInstance().player, TooltipFlag.NORMAL).forEach(list::add);
 
+        if(entry.itemStack.isDamageableItem() && entry.itemStack.isDamaged()){
+            list.add(Component.literal("Damage: " + (entry.itemStack.getMaxDamage() - entry.itemStack.getDamageValue()) + "/" + entry.itemStack.getMaxDamage()));
+        }
+
         list.add(Component.empty());
         list.add(Component.translatable("sdm.market.user.buy.price", entry.price));
         list.add(Component.translatable("sdm.market.user.buy.count", entry.count));
