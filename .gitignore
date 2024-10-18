@@ -4,3 +4,4 @@ fabric/run/
 fabric/build/
 fabric/.gradle/
 common/build/
+common/.gradle/

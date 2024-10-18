@@ -18,8 +18,13 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class MarketConfigData implements INBTSerialize {
-
+    public boolean isServer = false;
     public List<MarketConfigCategory> CATEGORIES = new ArrayList<>();
+
+    public MarketConfigData setServer(boolean server) {
+        this.isServer = server;
+        return this;
+    }
 
     @Nullable
     public MarketConfigCategory getCategory(UUID uuid) {
@@ -42,16 +47,29 @@ public class MarketConfigData implements INBTSerialize {
 
 
     public static void save(MinecraftServer server){
-        if(MarketDataManager.CONFIG_SERVER == null) return;
-        Path f1 = Platform.getConfigFolder().resolve("SDMMarket/configData.sdm");
-        SNBT.write(f1,MarketDataManager.CONFIG_SERVER.serialize());
+        if(MarketDataManager.CONFIG_SERVER != null) {
+            Path f1 = Platform.getConfigFolder().resolve("SDMMarket/configData.sdm");
+            SNBT.write(f1, MarketDataManager.CONFIG_SERVER.serialize());
+        }
+
+        if(MarketDataManager.GLOBAL_CONFIG_SERVER != null) {
+            Path f1 = Platform.getConfigFolder().resolve("SDMMarket/globalConfig.sdm");
+            SNBT.write(f1, MarketDataManager.GLOBAL_CONFIG_SERVER.serialize());
+        }
     }
 
     public static void load(MinecraftServer server) {
         SNBTCompoundTag nbt = SNBT.read(Platform.getConfigFolder().resolve("SDMMarket/configData.sdm"));
-        if(nbt == null) return;
-        MarketDataManager.CONFIG_SERVER = new MarketConfigData();
-        MarketDataManager.CONFIG_SERVER.deserialize(nbt);
+        if(nbt != null) {
+            MarketDataManager.CONFIG_SERVER = new MarketConfigData();
+            MarketDataManager.CONFIG_SERVER.deserialize(nbt);
+        }
+
+        nbt = SNBT.read(Platform.getConfigFolder().resolve("SDMMarket/globalConfig.sdm"));
+        if(nbt != null) {
+            MarketDataManager.GLOBAL_CONFIG_SERVER = new MarketConfig();
+            MarketDataManager.GLOBAL_CONFIG_SERVER.deserialize(nbt);
+        }
     }
 
     @Override

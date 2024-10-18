@@ -6,8 +6,10 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.market.config.AbstractMarketConfigEntry;
+import net.sixik.sdmmarket.common.market.config.ItemMarketConfigEntry;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
 import net.sixik.sdmmarket.common.market.offer.OfferCreateData;
+import net.sixik.sdmmarket.common.market.user.MarketUserAnyCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
@@ -39,7 +41,6 @@ public class MarketUserManager {
                 }
             }
         }
-
         return null;
     }
 
@@ -68,6 +69,16 @@ public class MarketUserManager {
                 return entry;
             }
         }
+
+        if(MarketDataManager.GLOBAL_CONFIG_SERVER != null && MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
+            if(category instanceof MarketUserAnyCategory anyCategory){
+                MarketUserEntryList entryList = new MarketUserEntryList();
+                entryList.itemStack = itemStack;
+                category.addEntry(entryList);
+                return entryList;
+            }
+        }
+
         return null;
     }
 
@@ -89,6 +100,12 @@ public class MarketUserManager {
             }
         }
 
+        if( (MarketDataManager.GLOBAL_CONFIG_SERVER != null && MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems) ||
+            (MarketDataManager.GLOBAL_CONFIG_CLIENT != null && MarketDataManager.GLOBAL_CONFIG_CLIENT.sellAnyItems)
+        ) {
+            return true;
+        }
+
         return false;
     }
 
@@ -99,12 +116,26 @@ public class MarketUserManager {
             }
         }
 
+        if( (MarketDataManager.GLOBAL_CONFIG_SERVER != null && MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems) ||
+                (MarketDataManager.GLOBAL_CONFIG_CLIENT != null && MarketDataManager.GLOBAL_CONFIG_CLIENT.sellAnyItems)
+        ) {
+            MarketUserAnyCategory _category = new MarketUserAnyCategory();
+            return new MarketConfigCategory(_category.categoryID, _category.categoryName);
+        }
+
         return null;
     }
 
     public static AbstractMarketConfigEntry getEntryForItem(ItemStack itemStack, MarketConfigData configData, MarketConfigCategory category) {
         for (AbstractMarketConfigEntry entry : category.entries) {
             if(entry.isAvailable(itemStack)) return entry;
+        }
+
+        if( (MarketDataManager.GLOBAL_CONFIG_SERVER != null && MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems) ||
+                (MarketDataManager.GLOBAL_CONFIG_CLIENT != null && MarketDataManager.GLOBAL_CONFIG_CLIENT.sellAnyItems)
+        ) {
+            MarketUserAnyCategory _category = new MarketUserAnyCategory();
+            return new ItemMarketConfigEntry(_category.categoryID, itemStack);
         }
 
         return null;
@@ -173,6 +204,11 @@ public class MarketUserManager {
             }
 
             userData.categories.add(userCategory);
+
+            if(MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
+                MarketUserAnyCategory anyCategory = new MarketUserAnyCategory();
+                userData.categories.add(anyCategory);
+            }
         }
 
         toUserData.copyFrom(userData);

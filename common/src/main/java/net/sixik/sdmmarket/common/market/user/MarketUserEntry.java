@@ -2,7 +2,6 @@ package net.sixik.sdmmarket.common.market.user;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdm_economy.api.CurrencyHelper;
 import net.sixik.sdmmarket.SDMMarket;
@@ -12,7 +11,6 @@ import net.sixik.sdmmarket.common.data.MarketPlayerData;
 import net.sixik.sdmmarket.common.market.basketEntry.BasketItemEntry;
 import net.sixik.sdmmarket.common.market.basketEntry.BasketMoneyEntry;
 import net.sixik.sdmmarket.common.market.offer.OfferCreateData;
-import net.sixik.sdmmarket.common.network.user.CloseEntryC2S;
 import net.sixik.sdmmarket.common.network.user.SyncMarketDataS2C;
 import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
 import net.sixik.sdmmarket.common.network.user.UpdateUIS2C;
@@ -81,7 +79,7 @@ public class MarketUserEntry implements INBTSerialize {
             boolean removed = removeEntry();
 
             if (removed && data.playerOffers.removeIf(s -> Objects.equals(s, entryID))) {
-                data.countOffers = Math.min(data.countOffers + 1, MarketDataManager.CONFIG.maxOffersForPlayer);
+                data.countOffers = Math.min(data.countOffers + 1, MarketDataManager.GLOBAL_CONFIG_SERVER.maxOffersForPlayer);
 
                 BasketItemEntry itemEntry = new BasketItemEntry(itemStack, count);
                 data.playerBasket.basketMoneyEntries.add(itemEntry);
@@ -126,7 +124,7 @@ public class MarketUserEntry implements INBTSerialize {
 
         BasketMoneyEntry moneyEntry = new BasketMoneyEntry(price);
         ownerData.playerBasket.basketMoneyEntries.add(moneyEntry);
-        ownerData.countOffers = Math.min(ownerData.countOffers + 1, MarketDataManager.CONFIG.maxOffersForPlayer);
+        ownerData.countOffers = Math.min(ownerData.countOffers + 1, MarketDataManager.GLOBAL_CONFIG_SERVER.maxOffersForPlayer);
         ownerData.playerOffers.removeIf(s -> Objects.equals(s, entryID));
 
         CurrencyHelper.Basic.addMoney(player, -price);

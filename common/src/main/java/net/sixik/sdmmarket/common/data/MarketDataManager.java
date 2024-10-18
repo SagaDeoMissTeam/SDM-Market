@@ -7,7 +7,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.storage.LevelResource;
 import net.sixik.sdmmarket.SDMMarket;
-import net.sixik.sdmmarket.common.market.config.MarketConfig;
 import org.apache.commons.io.FilenameUtils;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,7 +24,9 @@ public class MarketDataManager {
     public static MarketUserData USER_CLIENT = new MarketUserData();
     public static MarketUserData USER_SERVER;
 
-    public static MarketConfig CONFIG = new MarketConfig();
+    public static MarketConfig GLOBAL_CONFIG_SERVER = new MarketConfig();
+    public static MarketConfig GLOBAL_CONFIG_CLIENT = new MarketConfig();
+
     public static MarketPlayerData PLAYERS_SERVER_DATA = new MarketPlayerData();
     public static MarketPlayerData.PlayerData PLAYER_CLIENT_DATA = new MarketPlayerData.PlayerData();
 

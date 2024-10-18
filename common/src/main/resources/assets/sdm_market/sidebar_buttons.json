@@ -1,0 +1,9 @@
+{
+	"market": {
+		"group": "ftblibrary:info",
+		"icon": "sdm_market:icons/market",
+		"x": 100,
+		"click": "sdm_market:open_gui",
+		"loading_screen": true
+	}
+}

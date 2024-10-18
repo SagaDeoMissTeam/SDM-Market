@@ -7,7 +7,7 @@
   "sdm.market.admin.edit" : "Редактировать",
   "sdm.market.delete" : "Удалить",
   "category.market.category.icon": "Иконка",
-  "category.market.category.icon.description": "Нажмите ЛКИ или ПКМ для открытия окна выбора изображения",
+  "category.market.category.icon.tooltip": "Нажмите ЛКИ или ПКМ для открытия окна выбора изображения",
   "category.market.category.categoryName": "Имя",
   "sdm.market.admin.entry.tool": "Предмет Инструменты/Броня и т.д",
   "sdm.market.admin.entry.item": "Простой Предмет",
@@ -15,9 +15,9 @@
   "entry.market.entry.enchantable": "Может быть Зачарованным",
   "entry.market.entry.damagebled": "Может быть Повреждённый",
   "entry.market.entry.minPrice": "Минимальная Цена",
-  "entry.market.entry.minPrice.description": "Если 0 то без ограничений",
+  "entry.market.entry.minPrice.tooltip": "Если 0 то без ограничений",
   "entry.market.entry.maxPrice": "Максимальная Цена",
-  "entry.market.entry.maxPrice.description": "Если 0 то без ограничений",
+  "entry.market.entry.maxPrice.tooltip": "Если 0 то без ограничений",
   "sdm.market.user.search.ghost_text" : "Поиск...",
   "sdm.market.user.minprice.tooltip" : "Цена от",
   "sdm.market.user.maxprice.tooltip" : "Цена до",
@@ -37,5 +37,8 @@
   "sdm.market.user.maxcount.tooltip" : "Количество до",
   "sdm.market.user.buy.player_money" : "Выши деньги: %s",
   "sdm.market.user.buy.buy" : "Купить",
-  "sdm.market.user.basket.remove" : "Закрыть Офер"
+  "sdm.market.user.basket.remove" : "Закрыть Офер",
+  "market_global_config.sellAnyItems" : "Продажа любых предметов",
+  "market_global_config.sellAnyItems.tooltip" : "Позволит игрокам выставлять на продажу любые предметы, но при этом вы не можете контролировать их сумму и категорию \nЕсли у вас нету категории Misc перезапустите сервер",
+  "market_global_config.maxOffersForPlayer" : "Максимальное количество офферов игрока"
 }

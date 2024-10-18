@@ -8,8 +8,6 @@ import net.minecraft.world.item.Items;
 import net.sixik.sdmmarket.common.utils.INBTSerialize;
 import net.sixik.sdmmarket.common.utils.NBTUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;

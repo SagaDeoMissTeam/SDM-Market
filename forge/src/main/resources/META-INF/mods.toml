@@ -64,3 +64,21 @@ description='''
    versionRange="[1.20.1,1.21)"
    ordering="NONE"
    side="BOTH"
+[[dependencies.sdm_market]]
+modId = "ftblibrary"
+mandatory = true
+versionRange = "[2001.1.4,)"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies.sdm_market]]
+modId = "sdm_economy"
+mandatory = true
+versionRange = "[1.20.1-1.1.3,)"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies.sdm_market]]
+modId = "sdm_ui_lib"
+mandatory = true
+versionRange = "[1.20.1-1.7.0,)"
+ordering = "AFTER"
+side = "BOTH"

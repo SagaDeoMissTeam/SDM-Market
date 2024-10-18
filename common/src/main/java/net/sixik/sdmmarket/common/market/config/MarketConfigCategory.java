@@ -29,6 +29,11 @@ public class MarketConfigCategory implements INBTSerialize {
         this.categoryID = UUID.randomUUID();
     }
 
+    public MarketConfigCategory(UUID uuid, String categoryName) {
+        this.categoryName = categoryName;
+        this.categoryID = uuid;
+    }
+
     @Nullable
     public AbstractMarketConfigEntry getEntry(UUID entryID){
         for (AbstractMarketConfigEntry entry : entries) {

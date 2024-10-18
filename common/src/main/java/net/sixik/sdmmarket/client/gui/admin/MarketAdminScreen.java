@@ -27,6 +27,8 @@ public class MarketAdminScreen extends BaseScreen {
     public PanelScrollBar scrollCategoryPanel;
     public PanelScrollBar scrollEntryPanel;
 
+    public MarketAdminGlobalConfigButton globalConfigButton;
+
     public int sizeOfButtons = 48;
 
     public MarketAdminScreen() {
@@ -44,6 +46,8 @@ public class MarketAdminScreen extends BaseScreen {
 
     @Override
     public void addWidgets() {
+        add(globalConfigButton = new MarketAdminGlobalConfigButton(this));
+
         add(categoryPanel = new CategoryPanel(this));
         add(scrollCategoryPanel = new PanelScrollBar(this, ScrollBar.Plane.VERTICAL, categoryPanel) {
             @Override
@@ -75,6 +79,8 @@ public class MarketAdminScreen extends BaseScreen {
 
     @Override
     public void alignWidgets() {
+        globalConfigButton.setPos(this.width + 2, 0);
+
         categoryPanel.setSize(this.width / 5, this.height);
         entryPanel.setX(this.width / 5 + 2);
         entryPanel.setSize(this.width - 2 - this.width / 5, this.height);

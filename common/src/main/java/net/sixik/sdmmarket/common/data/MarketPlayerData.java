@@ -21,11 +21,17 @@ public class MarketPlayerData {
 
     public static class PlayerData implements INBTSerialize {
         public UUID playerID;
-        public int countOffers = MarketDataManager.CONFIG.maxOffersForPlayer;
+        public int countOffers = 0;
         public long numberOfOperations = 0;
         public long countMoneyByOperations = 0;
         public List<UUID> playerOffers = new ArrayList<>();
         public PlayerBasket playerBasket = new PlayerBasket();
+
+        public PlayerData() {
+            if(MarketDataManager.GLOBAL_CONFIG_SERVER != null) {
+                this.countOffers = MarketDataManager.GLOBAL_CONFIG_SERVER.maxOffersForPlayer;
+            }
+        }
 
         public List<MarketUserEntry> findClientOffers() {
             if(playerOffers.isEmpty()) return new ArrayList<>();
