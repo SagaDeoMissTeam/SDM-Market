@@ -5,6 +5,7 @@ import dev.architectury.networking.simple.BaseC2SMessage;
 import dev.architectury.networking.simple.MessageType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.sixik.sdmmarket.common.data.MarketConfig;
 import net.sixik.sdmmarket.common.data.MarketConfigData;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
@@ -47,6 +48,9 @@ public class EditMarketConfigC2S extends BaseC2SMessage {
 
         MarketConfigData.save(context.getPlayer().getServer());
 
+
+        MarketDataManager.getPlayerData(context.getPlayer()).updateOffersCount();
+        MarketUserManager.syncUserData((ServerPlayer) context.getPlayer());
         new SyncGlobalConfigS2C(MarketDataManager.GLOBAL_CONFIG_SERVER.serialize()).sendToAll(context.getPlayer().getServer());
     }
 }

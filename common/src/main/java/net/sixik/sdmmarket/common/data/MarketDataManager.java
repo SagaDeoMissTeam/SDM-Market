@@ -4,9 +4,11 @@ import dev.ftb.mods.ftblibrary.snbt.SNBT;
 import dev.ftb.mods.ftblibrary.snbt.SNBTCompoundTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.storage.LevelResource;
 import net.sixik.sdmmarket.SDMMarket;
+import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
 import org.apache.commons.io.FilenameUtils;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,6 +43,20 @@ public class MarketDataManager {
             data = PLAYERS_SERVER_DATA.PLAYERS.stream().filter(s -> Objects.equals(s.playerID, player.getGameProfile().getId())).findFirst();
         }
         return data.orElse(null);
+    }
+
+    public static void updatePlayersData(MinecraftServer server) {
+        if(server == null) return;
+
+        for (MarketPlayerData.PlayerData player : PLAYERS_SERVER_DATA.PLAYERS) {
+            player.updateOffersCount();
+        }
+
+        for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+            MarketPlayerData.PlayerData ownerData = MarketDataManager.getPlayerData(server, player);
+            if(ownerData == null) continue;
+            new SyncUserDataS2C(ownerData.serialize()).sendTo(player);
+        }
     }
 
     public static MarketPlayerData.PlayerData getPlayerData(MinecraftServer server, Player player) {

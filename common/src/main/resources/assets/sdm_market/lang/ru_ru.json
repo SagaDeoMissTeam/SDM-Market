@@ -40,8 +40,13 @@
   "sdm.market.user.basket.remove" : "Закрыть Офер",
   "market_global_config.sellAnyItems" : "Продажа любых предметов",
   "market_global_config.sellAnyItems.tooltip" : "Позволит игрокам выставлять на продажу любые предметы, но при этом вы не можете контролировать их сумму и категорию \nЕсли у вас нету категории Misc перезапустите сервер",
-  "market_global_config.maxOffersForPlayer" : "Максимальное количество офферов игрока",
+  "market_global_config.maxOffersForPlayer" : "Максимальное количество оферов игрока",
   "market_global_config.disableKeyBinding" : "Отключить кнопку маркета",
   "sdm.market.user.search.isenchantable" : "С Зачарованием",
-  "sdm.market.user.search.isnodamaged" : "Без Повреждения"
+  "sdm.market.user.search.isnodamaged" : "Без Повреждения",
+  "sidebar_button_sdm.market": "SDM Market",
+  "sdm.market.user.create.count_offers_want": "Количество оферов: ",
+  "key.sdmmarket.market": "Open SDM Market",
+  "sidebar_button.sdm_market.market": "SDM Market",
+  "market_global_config": "Market Global Configuration"
 }

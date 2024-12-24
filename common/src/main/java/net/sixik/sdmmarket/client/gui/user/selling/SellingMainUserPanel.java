@@ -26,6 +26,7 @@ public class SellingMainUserPanel extends Panel {
 
     public int countSell = 0;
     public int priceSell = 0;
+    public int countSellOffers = 0;
 
     public MarketTextField minPrice;
     public MarketTextField maxPrice;
@@ -37,6 +38,9 @@ public class SellingMainUserPanel extends Panel {
 
     public MarketTextField howPriceText;
     public MarketTextBox howPrice;
+
+    public MarketTextField countOffersText;
+    public MarketTextBox countOffersInput;
 
     public SimpleTextButton acceptSell;
 
@@ -100,11 +104,15 @@ public class SellingMainUserPanel extends Panel {
             howSellingText.setText(Component.translatable("sdm.market.user.create.how_selling"));
 
             add(howSelling = new MarketTextBox(this) {
-
                 @Override
                 public void onTextChanged() {
                     if(!getText().isEmpty()) {
                         countSell = Integer.parseInt(getText());
+
+                        if(countItems != 0 && countSell != 0) {
+                            countSellOffers = Math.min(1, countItems / countSell);
+                            countOffersInput.setText(String.valueOf(countSellOffers));
+                        }
                     }
                 }
 
@@ -112,7 +120,6 @@ public class SellingMainUserPanel extends Panel {
                 public boolean isValid(String txt) {
                     if(txt.matches("\\d+")) {
                         int i = Integer.parseInt(txt);
-
                         return i >= 0 && i <= countItems;
                     }
 
@@ -167,17 +174,50 @@ public class SellingMainUserPanel extends Panel {
             howPrice.setPos(5 + this.width / 2, howSellingText.posY + howSellingText.height + 2);
             howPrice.setSize(this.width / 2 - 10, howPriceText.height);
 
+            add(countOffersText = new MarketTextField(this));
+            countOffersText.setPos(4, howPrice.posY + howSellingText.height + 2);
+            countOffersText.setWidth(this.width / 2);
+            countOffersText.setText(Component.translatable("sdm.market.user.create.count_offers_want"));
+
+            add(countOffersInput = new MarketTextBox(this) {
+                @Override
+                public void onTextChanged() {
+                    if(!getText().isEmpty()) {
+                        countSellOffers = Integer.parseInt(getText());
+                    }
+                }
+
+                @Override
+                public boolean isValid(String txt) {
+                    if(txt.matches("\\d+")) {
+                        int i = Integer.parseInt(txt);
+                        if(countItems != 0 && countSell != 0) {
+                            countSellOffers = countItems / countSell;
+                            return i > 0 && i <= countSellOffers;
+                        }
+                    }
+
+                    return false;
+                }
+            });
+            countOffersInput.ghostText = Component.translatable("sdm.market.user.create.write_text").getString();
+            countOffersInput.setText(String.valueOf(countSellOffers));
+            countOffersInput.setPos(5 + this.width / 2, howPrice.posY + howSellingText.height + 2);
+            countOffersInput.setSize(this.width / 2 - 10, howPriceText.height);
+
             add(acceptSell = new SimpleTextButton(this, Component.translatable("sdm.market.user.create.create_lot"), Icons.ADD) {
                 @Override
                 public void onClicked(MouseButton button) {
-                    if(button.isLeft()) {
+                    if(button.isLeft() && countSellOffers > 0) {
                         try {
-                            MarketUserEntry entry = new MarketUserEntry(panel.selectable.configCategory.categoryID);
-                            entry.itemStack = panel.selectable.selectedItem.copy();
-                            entry.price = priceSell;
-                            entry.count = countSell;
-                            entry.ownerID = Minecraft.getInstance().player.getGameProfile().getId();
-                            new CreateOfferC2S(entry.serialize()).sendToServer();
+                            for (int i = 0; i < countSellOffers; i++) {
+                                MarketUserEntry entry = new MarketUserEntry(panel.selectable.configCategory.categoryID);
+                                entry.itemStack = panel.selectable.selectedItem.copy();
+                                entry.price = priceSell;
+                                entry.count = countSell;
+                                entry.ownerID = Minecraft.getInstance().player.getGameProfile().getId();
+                                new CreateOfferC2S(entry.serialize()).sendToServer();
+                            }
 
                             ((SellingUserScreen) getGui()).mainUserPanel.priceSell = 0;
                             ((SellingUserScreen) getGui()).mainUserPanel.countItems = 0;

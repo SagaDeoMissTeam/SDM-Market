@@ -30,6 +30,7 @@
   "sdm.market.user.create.how_selling" : "How many sell ?",
   "sdm.market.user.create.write_text" : "Write...",
   "sdm.market.user.create.how_price" : "Your price: ",
+  "sdm.market.user.create.count_offers_want" : "Number of offers: ",
   "sdm.market.user.create.create_lot" : "Create Offer",
   "sdm.market.user.basket" : "Basket",
   "sdm.market.user.buy.price" : "Price: %s",

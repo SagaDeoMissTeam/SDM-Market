@@ -33,6 +33,10 @@ public class MarketPlayerData {
             }
         }
 
+        public void updateOffersCount() {
+            this.countOffers = MarketDataManager.GLOBAL_CONFIG_SERVER.maxOffersForPlayer - playerOffers.size();
+        }
+
         public List<MarketUserEntry> findClientOffers() {
             if(playerOffers.isEmpty()) return new ArrayList<>();
             List<MarketUserEntry> list = new ArrayList<>();

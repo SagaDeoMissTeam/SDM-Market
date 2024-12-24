@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.sixik.sdmmarket.common.data.MarketConfig;
+import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 
 public class SyncMarketConfigS2C extends BaseS2CMessage {
@@ -36,7 +37,7 @@ public class SyncMarketConfigS2C extends BaseS2CMessage {
 
     @Override
     public void handle(NetworkManager.PacketContext context) {
-        MarketConfig config = new MarketConfig();
+        MarketConfig config = MarketDataManager.GLOBAL_CONFIG_CLIENT;
         config.deserialize(nbt);
 
         ConfigGroup group = new ConfigGroup("market_global_config", b -> {
