@@ -53,11 +53,12 @@ public class BuyOfferC2S extends BaseC2SMessage {
         while(iterator.hasNext()) {
             MarketUserEntry userEntry = iterator.next();
             if(Objects.equals(userEntry.entryID, entry.entryID)) {
-                userEntry.buyEntry((ServerPlayer) context.getPlayer());
-                iterator.remove();
-                new SyncMarketDataS2C().sendToAll(context.getPlayer().getServer());
-                MarketDataManager.saveMarketData(context.getPlayer().getServer());
-                break;
+                if(userEntry.buyEntry((ServerPlayer) context.getPlayer())) {
+                    iterator.remove();
+                    new SyncMarketDataS2C().sendToAll(context.getPlayer().getServer());
+                    MarketDataManager.saveMarketData(context.getPlayer().getServer());
+                    break;
+                }
             }
         }
     }
