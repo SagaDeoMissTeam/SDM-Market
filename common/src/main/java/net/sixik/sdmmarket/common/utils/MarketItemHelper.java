@@ -1,5 +1,6 @@
 package net.sixik.sdmmarket.common.utils;
 
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
@@ -35,41 +36,45 @@ public class MarketItemHelper {
     }
 
 
-    public static boolean sellItem(Player p, int amm, ItemStack item) {
+    public static boolean sellItem(Player p, int amm, ItemStack item, boolean ignoreNBT) {
+        int totalAmount = 0; // Общее количество предметов в инвентаре
+        Inventory inventory = p.getInventory();
 
-        int totalamm = 0; //общее количество вещей в инвентаре
-        for (int a = 0; a<p.getInventory().getContainerSize(); a++) { //считаем эти вещи
-            if (isEquals(p.getInventory().getItem(a), item)) {
-                totalamm += p.getInventory().getItem(a).getCount();
+        // Подсчёт предметов в инвентаре
+        for (int i = 0; i < inventory.getContainerSize(); i++) {
+            ItemStack stack = inventory.getItem(i);
+
+            if (!stack.isEmpty() && (ignoreNBT ? ItemStack.isSameItem(stack, item) : ItemStack.matches(stack, item))) {
+                totalAmount += stack.getCount();
             }
         }
-        if (totalamm==0) {
+
+        // Если предметов недостаточно — выход
+        if (totalAmount < amm) {
             return false;
         }
-        if (totalamm<amm) {
-            return false;
-        }
-        int ammountleft =amm;
-        for (int a = 0; a<p.getInventory().getContainerSize(); a++) {
-            if (ammountleft==0){return true;}
-            if (p.getInventory().getItem(a)==null) continue;
 
-            if(isEquals(p.getInventory().getItem(a), item)) {
-                if (p.getInventory().getItem(a).getCount()<ammountleft) {
-                    ammountleft-=p.getInventory().getItem(a).getCount();
-                    p.getInventory().setItem(a, ItemStack.EMPTY);
-                }
-                if (p.getInventory().getItem(a)!=null&&p.getInventory().getItem(a).getCount()==ammountleft) {
-                    p.getInventory().setItem(a, ItemStack.EMPTY);
-                    return true;
-                }
+        int amountLeft = amm; // Сколько ещё нужно удалить
 
-                if (p.getInventory().getItem(a).getCount()>ammountleft&&p.getInventory().getItem(a)!=null) {
-                    p.getInventory().getItem(a).setCount(p.getInventory().getItem(a).getCount()-ammountleft);
+        // Удаление предметов
+        for (int i = 0; i < inventory.getContainerSize(); i++) {
+            if (amountLeft == 0) break; // Если всё удалили — выход
+
+            ItemStack stack = inventory.getItem(i);
+
+            if (!stack.isEmpty() && (ignoreNBT ? ItemStack.isSameItem(stack, item) : ItemStack.matches(stack, item))) {
+                int stackCount = stack.getCount();
+
+                if (stackCount <= amountLeft) {
+                    amountLeft -= stackCount;
+                    inventory.setItem(i, ItemStack.EMPTY);
+                } else {
+                    stack.setCount(stackCount - amountLeft);
                     return true;
                 }
             }
         }
-        return false;
+
+        return amountLeft != amm;
     }
 }

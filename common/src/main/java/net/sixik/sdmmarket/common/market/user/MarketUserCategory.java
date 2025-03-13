@@ -5,6 +5,8 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.sixik.sdmmarket.common.serializer.MarketSerializer;
+import net.sixik.sdmmarket.common.serializer.SDMSerializeParam;
 import net.sixik.sdmmarket.common.utils.INBTSerialize;
 import net.sixik.sdmmarket.common.utils.NBTUtils;
 
@@ -12,7 +14,7 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class MarketUserCategory implements INBTSerialize {
+public class MarketUserCategory implements INBTSerialize  {
 
     public UUID categoryID;
     public ItemStack icon = Items.BARRIER.getDefaultInstance();
@@ -48,29 +50,32 @@ public class MarketUserCategory implements INBTSerialize {
         }
     }
 
+
+
     @Override
     public CompoundTag serialize() {
-        CompoundTag nbt = new CompoundTag();
-        nbt.putUUID("categoryID", categoryID);
-        NBTUtils.putItemStack(nbt, "icon", icon);
-        nbt.putString("categoryName", categoryName);
-        nbt.put("entries", NBTUtils.serializeList(entries));
-        return nbt;
+        return serialize(SDMSerializeParam.SERIALIZE_ALL_ENTRIES);
     }
+
+    public CompoundTag serialize(int bits) {
+        return MarketSerializer.MarketEntry.serializeCategory(this, bits);
+    }
+
 
     @Override
     public void deserialize(CompoundTag nbt) {
-        this.categoryID = nbt.getUUID("categoryID");
-        this.icon = NBTUtils.getItemStack(nbt, "icon");
-        this.categoryName = nbt.getString("categoryName");
+        deserialize(nbt, SDMSerializeParam.SERIALIZE_ALL_ENTRIES);
+    }
 
-        if(nbt.contains("entries")){
-            ListTag d1 = (ListTag) nbt.get("entries");
-            for (Tag entryTag : d1) {
-                MarketUserEntryList entry = new MarketUserEntryList();
-                entry.deserialize((CompoundTag) entryTag);
-                entries.add(entry);
-            }
-        }
+    public void deserialize(CompoundTag nbt, int bits) {
+        MarketSerializer.MarketEntry.deserializeCategory(this, nbt, bits);
+    }
+
+    public CompoundTag serializeWithoutEntries() {
+        return MarketSerializer.MarketEntry.serializeCategoryWithoutEntries(this);
+    }
+
+    public void deserializeWithoutEntries(CompoundTag nbt) {
+        MarketSerializer.MarketEntry.deserializeCategoryWithoutEntries(this, nbt);
     }
 }

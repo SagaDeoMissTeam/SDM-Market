@@ -11,6 +11,7 @@ import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 
+@Deprecated
 public class SendCategoriesS2C extends BaseS2CMessage {
 
     private final CompoundTag nbt;

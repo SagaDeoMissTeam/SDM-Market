@@ -10,6 +10,7 @@ import net.sixik.sdmmarket.common.network.admin.config.SyncMarketConfigS2C;
 import net.sixik.sdmmarket.common.network.misc.SendOpenMarketScreenS2C;
 import net.sixik.sdmmarket.common.network.user.*;
 import net.sixik.sdmmarket.common.network.user.basket.TakeBasketEntryC2S;
+import net.sixik.sdmmarket.common.network.user.newN.*;
 
 public class MarketNetwork {
 
@@ -36,7 +37,13 @@ public class MarketNetwork {
     public static final MessageType TAKE_BASKET_ENTRY = NET.registerC2S("take_basket_entry", TakeBasketEntryC2S::new);
     public static final MessageType CLOSE_ENTRY = NET.registerC2S("close_entry", CloseEntryC2S::new);
     public static final MessageType SYNC_GLOBAL_CONFIG = NET.registerS2C("sync_global_config", SyncGlobalConfigS2C::new);
-    public static final MessageType SYNC_USER_GLOBAL_CONFIG = NET.registerS2C("sync_user_global_config", SyncUserMarketGlobalConfigS2C::new);
+
+    public static final MessageType SEND_CLEAR_MARKET_DATA = NET.registerS2C("send_clear_market_data", SendClearMarketDataS2C::new);
+    public static final MessageType SEND_DELETE_MARKET_ENTRY = NET.registerS2C("send_delete_market_entry", SendDeleteMarketEntryS2C::new);
+    public static final MessageType SEND_GET_MARKET_CATEGORY = NET.registerC2S("send_get_market_category", SendGetMarketCategoryC2S::new);
+    public static final MessageType SEND_GET_MARKET_ENTRIES = NET.registerC2S("send_get_market_entries", SendGetMarketEntriesC2S::new);
+    public static final MessageType SEND_MARKET_CATEGORY = NET.registerS2C("send_market_category", SendMarketCategoryS2C::new);
+    public static final MessageType SEND_MARKET_ENTRY = NET.registerS2C("send_market_entry", SendMarketEntryS2C::new);
 
     public static void init() {
 

@@ -11,6 +11,8 @@ import net.sixik.sdmmarket.client.gui.user.buyer.MarketUserBuyerScreen;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
 
+
+@Deprecated
 public class SyncMarketDataS2C extends BaseS2CMessage {
 
     private final CompoundTag nbt;
@@ -38,13 +40,6 @@ public class SyncMarketDataS2C extends BaseS2CMessage {
     public void handle(NetworkManager.PacketContext context) {
         MarketDataManager.USER_CLIENT.deserialize(nbt);
 
-        if(Minecraft.getInstance().screen instanceof ScreenWrapper screenWrapper) {
-            if (screenWrapper.getGui() instanceof MarketUserBuyerScreen buyerScreen) {
-                buyerScreen.selectedEntry = null;
-                buyerScreen.updateEntries();
-                buyerScreen.infoPanel.addElements();
-                buyerScreen.entriesPanel.addEntries();
-            }
-        }
+
     }
 }

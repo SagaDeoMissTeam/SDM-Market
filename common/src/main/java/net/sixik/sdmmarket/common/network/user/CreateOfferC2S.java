@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.sixik.sdmmarket.SDMMarket;
+import net.sixik.sdmmarket.api.MarketAPI;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketPlayerData;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
@@ -70,7 +71,10 @@ public class CreateOfferC2S extends BaseC2SMessage {
 
         System.out.println(entry.itemStack.toString() + "  " + entry.itemStack.getTag());
 
-        if(!MarketItemHelper.sellItem(context.getPlayer(), entry.count, entry.itemStack)) return;
+        if(!MarketItemHelper.sellItem(context.getPlayer(), entry.count, entry.itemStack, !entry.itemStack.hasTag())) {
+            SDMMarket.LOGGER.error("Could not sell item for player " + context.getPlayer());
+            return;
+        }
 
         entryList.addElement(entry);
         data.countOffers -= 1;
@@ -79,8 +83,11 @@ public class CreateOfferC2S extends BaseC2SMessage {
         MarketDataManager.savePlayer(context.getPlayer().getServer(), data.playerID);
         MarketUserManager.syncUserData((ServerPlayer) context.getPlayer());
 
+
+        MarketAPI.syncMarket(context.getPlayer().getServer());
+
 //        new UpdateUIS2C().sendTo((ServerPlayer) context.getPlayer());
-        new SendCategoriesS2C(MarketDataManager.USER_SERVER.serialize()).sendToAll(context.getPlayer().getServer());
+//        new SendCategoriesS2C(MarketDataManager.USER_SERVER.serialize()).sendToAll(context.getPlayer().getServer());
 
         MarketDataManager.saveMarketData(context.getPlayer().getServer());
     }

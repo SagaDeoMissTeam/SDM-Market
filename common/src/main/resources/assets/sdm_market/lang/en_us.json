@@ -11,6 +11,7 @@
   "category.market.category.categoryName" : "Name",
   "sdm.market.admin.entry.tool" : "Item Tool/Armor/etc",
   "sdm.market.admin.entry.item" : "Simple Item",
+  "sdm.market.admin.entry.tag" : "Item Tag",
   "entry.market.entry.item" : "Item",
   "entry.market.entry.enchantable" : "Can be Enchantatable",
   "entry.market.entry.damagebled" : "Can be Damagable",

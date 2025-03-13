@@ -9,16 +9,16 @@ import dev.ftb.mods.ftblibrary.ui.*;
 import dev.ftb.mods.ftblibrary.ui.input.MouseButton;
 import dev.ftb.mods.ftblibrary.util.TooltipList;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.client.gui.admin.MarketAdminScreen;
-import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
-import net.sixik.sdmmarket.common.market.config.AbstractMarketConfigEntry;
-import net.sixik.sdmmarket.common.market.config.DurabilityMarketConfigEntry;
-import net.sixik.sdmmarket.common.market.config.ItemMarketConfigEntry;
+import net.sixik.sdmmarket.common.market.config.*;
 import net.sixik.sdmmarket.common.network.admin.CreateCategoryEntryC2S;
 import net.sixik.sdmmarket.common.network.admin.EditCategoryEntryC2S;
 import net.sixik.v2.color.RGBA;
@@ -34,10 +34,16 @@ public class EntryButton extends SimpleTextButton {
 
     public boolean isEdit = false;
 
+    public List<Holder<Item>> items = new ArrayList<>();
+
     public AbstractMarketConfigEntry configEntry;
     public EntryButton(Panel panel, AbstractMarketConfigEntry configEntry) {
         super(panel, Component.empty(), configEntry != null ? configEntry.getIcon() : Icon.empty());
         this.configEntry = configEntry;
+
+        if(configEntry instanceof ItemTagMarketConfigEntry configEntry1) {
+            this.items = configEntry1.getItems().get().stream().toList();
+        }
     }
 
     public EntryButton setEdit() {
@@ -67,6 +73,14 @@ public class EntryButton extends SimpleTextButton {
                     ((MarketAdminScreen)getGui()).addCategoryEntryButtons();
                     new CreateCategoryEntryC2S(category.categoryID, entry.serialize()).sendToServer();
                 }));
+                fContext1.add(new ContextMenuItem(Component.translatable("sdm.market.admin.entry.tag"), Icons.ADD, (d) -> {
+                    MarketConfigCategory category = ((MarketAdminScreen)getGui()).selectedCategory;
+                    ItemTagMarketConfigEntry entry = new ItemTagMarketConfigEntry(category.categoryID);
+                    category.entries.add(entry);
+                    ((MarketAdminScreen)getGui()).addCategoryEntryButtons();
+                    new CreateCategoryEntryC2S(category.categoryID, entry.serialize()).sendToServer();
+                }));
+
                 getGui().openContextMenu(fContext1);
             } else {
                 editScreen();
@@ -93,7 +107,12 @@ public class EntryButton extends SimpleTextButton {
     public void addMouseOverText(TooltipList list) {
         if(!isEdit) {
             ItemStack itemStack = ItemStack.EMPTY;
-            if (configEntry.getIcon() instanceof ItemIcon icon) {
+
+            if(configEntry instanceof ItemTagMarketConfigEntry tEntry) {
+
+                list.add(Component.literal("Tag: ").append(tEntry.tagKey.toString()));
+
+            } else if (configEntry.getIcon() instanceof ItemIcon icon) {
                 itemStack = icon.getStack();
             }
 
@@ -121,6 +140,9 @@ public class EntryButton extends SimpleTextButton {
         getGui().refreshWidgets();
     }
 
+    private int i = 0;
+    private int currentIndex = 0;
+
     @Override
     public void draw(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
         if(isEdit) {
@@ -140,6 +162,22 @@ public class EntryButton extends SimpleTextButton {
             GLRenderHelper.pushTransform(graphics, new Vector2(x,y), new Vector2(1,1), size.y, 0);
             theme.drawString(graphics, text, x + 1, y + (h - theme.getFontHeight() - 1));
             GLRenderHelper.popTransform(graphics);
+        }
+
+
+        if (items.isEmpty() || items.size() == 1) {
+            currentIndex = 0;
+            return;
+        }
+        i++;
+
+        if (i % 40 == 0) {
+            currentIndex++;
+            if (currentIndex >= items.size()) {
+                currentIndex = 0;
+            }
+
+            icon = ItemIcon.getItemIcon(items.get(currentIndex).value());
         }
     }
 

@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdm_economy.api.CurrencyHelper;
 import net.sixik.sdmmarket.SDMMarket;
+import net.sixik.sdmmarket.api.MarketAPI;
 import net.sixik.sdmmarket.client.SearchData;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketPlayerData;
@@ -88,9 +89,11 @@ public class MarketUserEntry implements INBTSerialize {
                 BasketItemEntry itemEntry = new BasketItemEntry(itemStack, count);
                 data.playerBasket.basketMoneyEntries.add(itemEntry);
 
+
+                MarketAPI.syncMarket(player.server);
+
                 new SyncUserDataS2C(data.serialize()).sendTo(player);
-                new SyncMarketDataS2C().sendToAll(player.server);
-                new UpdateUIS2C().sendTo(player);
+
                 MarketDataManager.savePlayer(player.server, player);
                 MarketDataManager.saveMarketData(player.server);
             }

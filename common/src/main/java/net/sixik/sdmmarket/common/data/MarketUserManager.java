@@ -1,12 +1,16 @@
 package net.sixik.sdmmarket.common.data;
 
 import dev.ftb.mods.ftblibrary.icon.ItemIcon;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.market.config.AbstractMarketConfigEntry;
 import net.sixik.sdmmarket.common.market.config.ItemMarketConfigEntry;
+import net.sixik.sdmmarket.common.market.config.ItemTagMarketConfigEntry;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
 import net.sixik.sdmmarket.common.market.offer.OfferCreateData;
 import net.sixik.sdmmarket.common.market.user.MarketUserAnyCategory;
@@ -17,10 +21,7 @@ import net.sixik.sdmmarket.common.network.user.SyncUserDataS2C;
 import net.sixik.sdmmarket.common.utils.MarketItemHelper;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class MarketUserManager {
 
@@ -198,14 +199,34 @@ public class MarketUserManager {
             userCategory.icon = category.icon;
 
 
-            for (AbstractMarketConfigEntry entry : category.entries) {
-                MarketUserEntryList userEntryList = new MarketUserEntryList();
 
-                if(entry.getIcon() instanceof ItemIcon icon) {
-                    userEntryList.itemStack = icon.getStack();
+            for (AbstractMarketConfigEntry entry : category.entries) {
+
+                if(entry instanceof ItemTagMarketConfigEntry tagConfig) {
+                    Optional<HolderSet.Named<Item>> t = tagConfig.getItems();
+
+                    if(t.isEmpty()) continue;
+
+                    var ent = t.get();
+
+                    for (Holder<Item> itemHolder : ent) {
+                        MarketUserEntryList userEntryList = new MarketUserEntryList();
+                        userEntryList.tagID = tagConfig.tagKey;
+                        userEntryList.itemStack = itemHolder.value().getDefaultInstance();
+
+                        userCategory.entries.add(userEntryList);
+                    }
+
+                } else {
+                    MarketUserEntryList userEntryList = new MarketUserEntryList();
+
+                    if(entry.getIcon() instanceof ItemIcon icon) {
+                        userEntryList.itemStack = icon.getStack();
+                    }
+
+                    userCategory.entries.add(userEntryList);
                 }
 
-                userCategory.entries.add(userEntryList);
             }
 
             userData.categories.add(userCategory);

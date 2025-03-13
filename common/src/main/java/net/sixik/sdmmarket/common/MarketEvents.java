@@ -2,6 +2,9 @@ package net.sixik.sdmmarket.common;
 
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.event.events.common.PlayerEvent;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.sixik.sdmmarket.api.MarketAPI;
 import net.sixik.sdmmarket.common.data.MarketConfigData;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.data.MarketFileManager;
@@ -31,7 +34,9 @@ public class MarketEvents {
         PlayerEvent.PLAYER_JOIN.register(player -> {
             new SyncGlobalConfigS2C(MarketDataManager.GLOBAL_CONFIG_SERVER.serialize()).sendTo(player);
             MarketDataManager.loadPlayer(player.server, player);
-            new SyncMarketDataS2C().sendTo(player);
+
+            MarketAPI.syncMarket(player);
+
             MarketUserManager.syncUserData(player);
         });
 

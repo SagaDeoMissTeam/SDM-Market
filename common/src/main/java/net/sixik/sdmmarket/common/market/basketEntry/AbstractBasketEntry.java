@@ -29,6 +29,7 @@ public abstract class AbstractBasketEntry implements INBTSerialize {
             return entry;
         }
 
+
         return null;
     }
 

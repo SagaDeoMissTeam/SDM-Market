@@ -5,6 +5,7 @@ import dev.architectury.networking.simple.BaseC2SMessage;
 import dev.architectury.networking.simple.MessageType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.sixik.sdmmarket.api.MarketAPI;
 import net.sixik.sdmmarket.common.data.MarketConfigData;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
@@ -64,7 +65,8 @@ public class EditCategoryEntryC2S extends BaseC2SMessage {
 
             MarketConfigData.save(context.getPlayer().getServer());
             MarketUserManager.createOffersCategories(MarketDataManager.CONFIG_SERVER, MarketDataManager.USER_SERVER);
-            new SyncMarketDataS2C().sendToAll(context.getPlayer().getServer());
+
+            MarketAPI.syncMarket(context.getPlayer().getServer());
         }
     }
 }

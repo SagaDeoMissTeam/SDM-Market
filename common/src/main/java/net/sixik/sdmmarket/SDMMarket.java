@@ -23,6 +23,7 @@ public class SDMMarket
 		CommandRegistrationEvent.EVENT.register(MarketCommands::registerCommands);
 
 		EnvExecutor.runInEnv(Env.CLIENT, () -> SDMMarketClient::init);
+
 	}
 
 	public static String moneyString(long money) {

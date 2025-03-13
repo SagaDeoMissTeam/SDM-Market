@@ -34,6 +34,11 @@ public abstract class AbstractMarketConfigEntry implements INBTSerialize {
             marketConfigEntry.deserialize(nbt);
             return marketConfigEntry;
         }
+        if(Objects.equals(id, "itemTagType")){
+            ItemTagMarketConfigEntry marketConfigEntry = new ItemTagMarketConfigEntry(null);
+            marketConfigEntry.deserialize(nbt);
+            return marketConfigEntry;
+        }
         return null;
     }
 

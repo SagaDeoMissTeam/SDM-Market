@@ -216,6 +216,9 @@ public class SellingMainUserPanel extends Panel {
                                 entry.price = priceSell;
                                 entry.count = countSell;
                                 entry.ownerID = Minecraft.getInstance().player.getGameProfile().getId();
+
+//                                System.out.println("SendPacket");
+
                                 new CreateOfferC2S(entry.serialize()).sendToServer();
                             }
 

@@ -6,6 +6,7 @@ import dev.architectury.networking.simple.MessageType;
 import dev.ftb.mods.ftblibrary.ui.ScreenWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
+import net.sixik.sdmmarket.api.MarketAPI;
 import net.sixik.sdmmarket.client.gui.admin.MarketAdminScreen;
 import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
 import net.sixik.sdmmarket.client.gui.user.basket.MarketUserBasketScreen;
@@ -34,33 +35,6 @@ public class UpdateUIS2C extends BaseS2CMessage {
 
     @Override
     public void handle(NetworkManager.PacketContext context) {
-        if(Minecraft.getInstance().screen instanceof ScreenWrapper screenWrapper){
-            if(screenWrapper.getGui() instanceof MarketUserScreen userScreen) {
-                userScreen.clearWidgets();
-                userScreen.addWidgets();
-                userScreen.alignWidgets();
-            }
-            if(screenWrapper.getGui() instanceof SellingUserScreen sellingUserScreen){
-                sellingUserScreen.selectable.clear();
-                sellingUserScreen.clearWidgets();
-                sellingUserScreen.addWidgets();
-                sellingUserScreen.alignWidgets();
-                sellingUserScreen.sellingPanel.addSellableItems();
-            }
-            if(screenWrapper.getGui() instanceof MarketAdminScreen adminScreen){
-                adminScreen.clearWidgets();
-                adminScreen.addWidgets();
-                adminScreen.alignWidgets();
-            }
-            if(screenWrapper.getGui() instanceof MarketUserBasketScreen basketScreen){
-                basketScreen.entriesPanel.addEntries();
-                basketScreen.offersPanel.addEntries();
-            }
-            if(screenWrapper.getGui() instanceof MarketUserBuyerScreen buyerScreen) {
-                buyerScreen.selectedEntry = null;
-                buyerScreen.infoPanel.addElements();
-                buyerScreen.entriesPanel.addEntries();
-            }
-        }
+        MarketAPI.updateUI();
     }
 }
