@@ -27,7 +27,7 @@ public class NBTUtils {
 
     public static Item getItem(CompoundTag nbt, String key){
         if(nbt.get(key) instanceof StringTag stringTag) {
-            return BuiltInRegistries.ITEM.get(new ResourceLocation(stringTag.getAsString()));
+            return BuiltInRegistries.ITEM.getOptional(new ResourceLocation(stringTag.getAsString())).orElse(Items.BEDROCK);
         }
         return Items.AIR;
     }
@@ -38,7 +38,7 @@ public class NBTUtils {
 
     public static ItemStack getItemStack(CompoundTag nbt, String key){
         if(nbt.get(key) instanceof StringTag stringTag) {
-            Item d1 = BuiltInRegistries.ITEM.get(new ResourceLocation(stringTag.getAsString()));
+            Item d1 = BuiltInRegistries.ITEM.getOptional(new ResourceLocation(stringTag.getAsString())).orElse(Items.BEDROCK);
             if(d1 == null) return ItemStack.EMPTY;
             return d1.getDefaultInstance();
         }

@@ -41,8 +41,9 @@ public class SendMarketCategoryS2C extends BaseS2CMessage {
 
         MarketDataManager.USER_CLIENT.categories.add(userCategory);
 
+        new SendGetMarketEntriesC2S(userCategory.icon).sendToServer();
+
         MarketAPI.updateUI();
 
-        new SendGetMarketEntriesC2S(userCategory.icon).sendToServer();
     }
 }

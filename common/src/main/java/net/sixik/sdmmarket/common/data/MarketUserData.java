@@ -4,6 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
+import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.common.market.user.MarketUserAnyCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
@@ -33,7 +34,7 @@ public class MarketUserData implements INBTSerialize {
             return;
         }
 
-        @Nullable MarketUserCategory defaultCategory = this.categories.stream().filter(s -> s.categoryID.equals(MarketUserAnyCategory.DEFAULT)).findFirst().orElse(null);
+//        @Nullable MarketUserCategory defaultCategory = this.categories.stream().filter(s -> s.categoryID.equals(MarketUserAnyCategory.DEFAULT)).findFirst().orElse(null);
 
         // Идем по текущим категориям и обновляем их или удаляем, если нет записей
         var iterator = this.categories.iterator();
@@ -71,17 +72,9 @@ public class MarketUserData implements INBTSerialize {
             }
 
             // Удаляем категорию, если она не найдена и пустая
-            if (!found) {
+            if (!found && category.allEmpty()) {
 
-                if(!category.entries.isEmpty() && defaultCategory != null) {
-                    category.entries.forEach(ent -> {
-                        for (MarketUserEntry entry : ent.entries) {
-                            entry.categoryID = defaultCategory.categoryID;
-                        }
-
-                        defaultCategory.entries.add(ent);
-                    });
-                }
+                SDMMarket.LOGGER.info(category.categoryName);
 
                 iterator.remove();
             }

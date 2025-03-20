@@ -50,6 +50,16 @@ public class MarketUserCategory implements INBTSerialize  {
         }
     }
 
+    public boolean allEmpty() {
+        if(entries.isEmpty()) return true;
+
+        for (MarketUserEntryList entry : entries) {
+            if(!entry.entries.isEmpty()) return false;
+        }
+
+        return true;
+    }
+
 
 
     @Override

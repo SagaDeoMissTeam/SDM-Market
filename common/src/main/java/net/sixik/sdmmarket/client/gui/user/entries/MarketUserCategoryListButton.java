@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
 import net.sixik.sdmmarket.client.gui.user.buyer.MarketUserBuyerScreen;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
@@ -43,6 +44,12 @@ public class MarketUserCategoryListButton extends SimpleTextButton {
     public void onClicked(MouseButton button) {
         if(button.isLeft()) {
             new MarketUserBuyerScreen(category, entryList).openGui();
+
+
+            if(getGui() instanceof MarketUserScreen screen) {
+                screen.setScroll();
+            }
+
         }
     }
 

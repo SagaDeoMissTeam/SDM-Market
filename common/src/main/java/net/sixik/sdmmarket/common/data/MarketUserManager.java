@@ -232,10 +232,13 @@ public class MarketUserManager {
             userData.categories.add(userCategory);
         }
 
-        if(MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
-            MarketUserAnyCategory anyCategory = new MarketUserAnyCategory();
-            userData.categories.add(anyCategory);
-        }
+        MarketUserAnyCategory anyCategory = new MarketUserAnyCategory();
+        userData.categories.add(anyCategory);
+
+//        if(MarketDataManager.GLOBAL_CONFIG_SERVER.sellAnyItems){
+//            MarketUserAnyCategory anyCategory = new MarketUserAnyCategory();
+//            userData.categories.add(anyCategory);
+//        }
 
         toUserData.copyFrom(userData);
     }

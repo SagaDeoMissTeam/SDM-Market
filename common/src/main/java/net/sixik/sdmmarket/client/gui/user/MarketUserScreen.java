@@ -5,6 +5,7 @@ import dev.ftb.mods.ftblibrary.ui.PanelScrollBar;
 import dev.ftb.mods.ftblibrary.ui.Theme;
 import dev.ftb.mods.ftblibrary.ui.input.Key;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.util.Mth;
 import net.sixik.sdmmarket.SDMMarketClient;
 import net.sixik.sdmmarket.client.gui.user.entries.EntriesPanel;
 import net.sixik.sdmmarket.client.gui.user.misc.OpenAdminMenuButton;
@@ -24,6 +25,8 @@ public class MarketUserScreen extends BaseScreen {
     public EntriesPanel entriesPanel;
     public PanelScrollBar scrollEntriesPanel;
 
+
+    public double entryScrollPos = 0.0;
 
     public MarketUserScreen() {
         new InvokeSyncAdminCategoryC2S().sendToServer();
@@ -88,6 +91,12 @@ public class MarketUserScreen extends BaseScreen {
                 this.entriesPanel.getHeight()
         );
 
+        this.scrollEntriesPanel.setValue(this.entryScrollPos);
+
+    }
+
+    public void setScroll() {
+        this.entryScrollPos = Mth.clamp(scrollEntriesPanel.getValue(), scrollEntriesPanel.getMinValue(), scrollEntriesPanel.getMaxValue());
     }
 
     @Override

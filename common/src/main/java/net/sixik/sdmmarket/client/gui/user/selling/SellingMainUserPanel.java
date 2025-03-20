@@ -119,6 +119,8 @@ public class SellingMainUserPanel extends Panel {
                 @Override
                 public boolean isValid(String txt) {
                     if(txt.matches("\\d+")) {
+                        if(txt.startsWith("0") && txt.length() > 1) txt = txt.substring(1);
+
                         int i = Integer.parseInt(txt);
                         return i >= 0 && i <= countItems;
                     }
@@ -147,6 +149,9 @@ public class SellingMainUserPanel extends Panel {
                 @Override
                 public boolean isValid(String txt) {
                     if(txt.matches("\\d+")) {
+
+                        if(txt.startsWith("0") && txt.length() > 1) txt = txt.substring(1);
+
                         int i = Integer.parseInt(txt);
 
 
