@@ -77,7 +77,7 @@ public class DurabilityMarketConfigEntry extends AbstractMarketConfigEntry{
 
     @Override
     public void config(ConfigGroup group) {
-        group.addItemStack("item", itemStack, v -> itemStack = v, ItemStack.EMPTY, 1);
+        group.addItemStack("item", itemStack, v -> itemStack = v, ItemStack.EMPTY, true,false);
         group.addBool("enchantable", enchantable, v -> enchantable = v, false);
         group.addBool("damagebled", damagebled, v -> damagebled = v, false);
         super.config(group);

@@ -1,3 +1,61 @@
 {
-	categories: [ ]
+	categories: [{
+		entries: [
+			{
+				item: {
+					id: "minecraft:barrier"
+					Count: 1b
+				}
+				minPrice: 0L
+				typeID: "itemType"
+				maxPrice: 0L
+				categoryID: [I;
+					-2116683770
+					-472954594
+					-2020781809
+					-1252340611
+				]
+				entryID: [I;
+					-271118706
+					632311224
+					-1913173150
+					-1546968183
+				]
+			}
+			{
+				item: {
+					id: "minecraft:barrier"
+					Count: 1b
+				}
+				damagebled: 0b
+				minPrice: 0L
+				typeID: "durabilityType"
+				maxPrice: 0L
+				categoryID: [I;
+					-2116683770
+					-472954594
+					-2020781809
+					-1252340611
+				]
+				entryID: [I;
+					1821433481
+					-484818049
+					-1457176300
+					-283000264
+				]
+				enchantable: 0b
+			}
+		]
+		icon: {
+			id: "minecraft:barrier"
+			Count: 1b
+		}
+		categoryName: "Empty Name"
+		categoryID: [I;
+			-2116683770
+			-472954594
+			-2020781809
+			-1252340611
+		]
+	}]
 }

@@ -1,20 +1,20 @@
 package net.sixik.sdmmarket.client.gui.user;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.BaseScreen;
 import dev.ftb.mods.ftblibrary.ui.PanelScrollBar;
 import dev.ftb.mods.ftblibrary.ui.Theme;
 import dev.ftb.mods.ftblibrary.ui.input.Key;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.Mth;
 import net.sixik.sdmmarket.SDMMarketClient;
+import net.sixik.sdmmarket.client.gui.ui.Colors;
 import net.sixik.sdmmarket.client.gui.user.entries.EntriesPanel;
 import net.sixik.sdmmarket.client.gui.user.misc.OpenAdminMenuButton;
 import net.sixik.sdmmarket.client.gui.user.misc.OpenBasketMenuButton;
 import net.sixik.sdmmarket.client.gui.user.misc.OpenSellingMenuButton;
 import net.sixik.sdmmarket.client.gui.user.search.SearchPanel;
 import net.sixik.sdmmarket.common.network.admin.InvokeSyncAdminCategoryC2S;
-import net.sixik.v2.color.Colors;
-import net.sixik.v2.color.RGBA;
 
 public class MarketUserScreen extends BaseScreen {
 
@@ -41,7 +41,7 @@ public class MarketUserScreen extends BaseScreen {
     public boolean onInit() {
         setWidth(getScreen().getGuiScaledWidth() * 4/5);
         setHeight(getScreen().getGuiScaledHeight() * 4/5);
-        closeContextMenu();
+
         return true;
     }
 
@@ -59,13 +59,13 @@ public class MarketUserScreen extends BaseScreen {
         entriesPanel.addWidgets();
         add(scrollEntriesPanel = new PanelScrollBar(this, entriesPanel){
             @Override
-            public void drawScrollBar(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+            public void drawScrollBar(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
                 Colors.UI_GOLD_0.draw(graphics,x,y,w,h);
             }
 
             @Override
-            public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-                RGBA.create(0,0,0, 255/2).draw(graphics,x,y,w,h);
+            public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                Color4I.rgba(0,0,0,255/3).draw(graphics,x,y,w,h);
             }
         });
     }
@@ -85,10 +85,10 @@ public class MarketUserScreen extends BaseScreen {
         this.entriesPanel.alignWidgets();
 
         this.scrollEntriesPanel.setPosAndSize(
-                this.entriesPanel.getPosX() + this.entriesPanel.getWidth() - this.getScrollbarWidth(),
-                this.entriesPanel.getPosY(),
+                this.entriesPanel.posX + this.entriesPanel.width - this.getScrollbarWidth(),
+                this.entriesPanel.posY,
                 this.getScrollbarWidth(),
-                this.entriesPanel.getHeight()
+                this.entriesPanel.height
         );
 
         this.scrollEntriesPanel.setValue(this.entryScrollPos);
@@ -105,7 +105,7 @@ public class MarketUserScreen extends BaseScreen {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
 
     }
 

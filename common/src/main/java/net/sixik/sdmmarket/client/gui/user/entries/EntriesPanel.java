@@ -1,15 +1,17 @@
 package net.sixik.sdmmarket.client.gui.user.entries;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.architectury.registry.registries.Registries;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.Theme;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.sixik.sdmmarket.client.SearchData;
+import net.sixik.sdmmarket.client.gui.ui.TextRenderHelper;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
-import net.sixik.v2.color.RGBA;
-import net.sixik.v2.render.TextRenderHelper;
+import net.sixik.sdmmarket.common.utils.NBTUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +54,8 @@ public class EntriesPanel extends Panel {
 
                             if (SearchData.name.isEmpty() ||
                                     (
-                                            entry.itemStack.getDisplayName().getString().toLowerCase().contains(SearchData.name.toLowerCase()) ||
-                                                    BuiltInRegistries.ITEM.getKey(entry.itemStack.getItem()).toString().contains(SearchData.name.toLowerCase())
+                                        entry.itemStack.getDisplayName().getString().toLowerCase().contains(SearchData.name.toLowerCase()) ||
+                                           Registry.ITEM.getKey(entry.itemStack.getItem()).toString().contains(SearchData.name.toLowerCase())
                                     )
                             ) {
 
@@ -71,7 +73,7 @@ public class EntriesPanel extends Panel {
 
         MarketUserCategoryListButton button = new MarketUserCategoryListButton(this) {
             @Override
-            public void draw(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+            public void draw(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
 
             }
 
@@ -97,7 +99,7 @@ public class EntriesPanel extends Panel {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(0,0,0,255/3).drawRoundFill(graphics,x,y,w,h,6);
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(0,0,0,255/3).draw(graphics,x,y,w,h);
     }
 }

@@ -1,17 +1,17 @@
 package net.sixik.sdmmarket.client.gui.user.buyer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.icon.Icon;
 import dev.ftb.mods.ftblibrary.icon.ItemIcon;
 import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.TextField;
 import dev.ftb.mods.ftblibrary.ui.Theme;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.network.chat.Component;
-import net.sixik.sdm_economy.api.CurrencyHelper;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.sdm.sdmshopr.SDMShopR;
+import net.sixik.sdmmarket.client.gui.ui.TextRenderHelper;
 import net.sixik.sdmmarket.client.widgets.MarketTextField;
-import net.sixik.v2.color.RGBA;
-import net.sixik.v2.render.TextRenderHelper;
 
 public class MarketUserBuyerInfoPanel extends Panel {
 
@@ -40,7 +40,7 @@ public class MarketUserBuyerInfoPanel extends Panel {
     public void addElements() {
         moneyField.setSize(this.width - 4, (TextRenderHelper.getTextHeight() + 1) * 2);
         moneyField.setPos(2,  36);
-        moneyField.setText(Component.translatable("sdm.market.user.buy.player_money", CurrencyHelper.Basic.getMoney(Minecraft.getInstance().player)));
+        moneyField.setText(new TranslatableComponent("sdm.market.user.buy.player_money", SDMShopR.getMoney(Minecraft.getInstance().player)));
         moneyField.setMaxWidth(this.width - 4);
 
         this.buyerBuyButton.setPos(4, this.height - (TextRenderHelper.getTextHeight() + 3));
@@ -48,7 +48,7 @@ public class MarketUserBuyerInfoPanel extends Panel {
     }
 
     public boolean canBuy() {
-        return panel.selectedEntry!= null && CurrencyHelper.Basic.getMoney(Minecraft.getInstance().player) >= panel.selectedEntry.price;
+        return panel.selectedEntry!= null && SDMShopR.getMoney(Minecraft.getInstance().player) >= panel.selectedEntry.price;
     }
 
     public boolean isSelected() {
@@ -56,14 +56,12 @@ public class MarketUserBuyerInfoPanel extends Panel {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(0,0,0,255/3).drawRoundFill(graphics,x,y,w,h,6);
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(0,0,0,255/3).draw(graphics,x,y,w,h);
 
         int j = w >= 34 ? 32 : 16;
 
-
-
-        RGBA.create(100,100,100,255/3).drawRoundFill(graphics,x + (this.width / 2) - j / 2,y + 2,j,j,6);
+        Color4I.rgba(100,100,100,255/3).draw(graphics,x + (this.width / 2) - j / 2,y + 2,j,j);
         icon.draw(graphics,x + (this.width / 2) - j / 2,y + 2, j, j);
 
 

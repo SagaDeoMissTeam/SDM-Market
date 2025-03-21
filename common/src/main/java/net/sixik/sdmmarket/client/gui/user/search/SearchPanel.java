@@ -1,24 +1,25 @@
 package net.sixik.sdmmarket.client.gui.user.search;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.icon.Icon;
 import dev.ftb.mods.ftblibrary.ui.*;
 import dev.ftb.mods.ftblibrary.ui.input.MouseButton;
 import dev.ftb.mods.ftblibrary.util.TooltipList;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.network.chat.Component;
-import net.sixik.sdm_economy.adv.PlayerMoneyData;
-import net.sixik.sdm_economy.api.CurrencyHelper;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.sdm.sdmshopr.SDMShopR;
 import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.client.SearchData;
+import net.sixik.sdmmarket.client.gui.ui.Colors;
+import net.sixik.sdmmarket.client.gui.ui.TextRenderHelper;
 import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
 import net.sixik.sdmmarket.client.widgets.MarketCheckBox;
 import net.sixik.sdmmarket.client.widgets.MarketTextBox;
 import net.sixik.sdmmarket.client.widgets.MarketTextField;
-import net.sixik.v2.color.Colors;
-import net.sixik.v2.color.RGB;
-import net.sixik.v2.color.RGBA;
-import net.sixik.v2.render.TextRenderHelper;
+import net.sixik.sdmmarket.common.data.MarketDataManager;
+
 
 public class SearchPanel extends Panel {
 
@@ -53,7 +54,7 @@ public class SearchPanel extends Panel {
         add(minPriceBox = new MarketTextBox(this) {
             @Override
             public void addMouseOverText(TooltipList list) {
-                list.add(Component.translatable("sdm.market.user.minprice.tooltip"));
+                list.add(new TranslatableComponent("sdm.market.user.minprice.tooltip"));
             }
 
             @Override
@@ -88,7 +89,7 @@ public class SearchPanel extends Panel {
         add(maxPriceBox = new MarketTextBox(this){
             @Override
             public void addMouseOverText(TooltipList list) {
-                list.add(Component.translatable("sdm.market.user.maxprice.tooltip"));
+                list.add(new TranslatableComponent("sdm.market.user.maxprice.tooltip"));
             }
 
             @Override
@@ -128,7 +129,7 @@ public class SearchPanel extends Panel {
         add(minCountBox = new MarketTextBox(this){
             @Override
             public void addMouseOverText(TooltipList list) {
-                list.add(Component.translatable("sdm.market.user.mincount.tooltip"));
+                list.add(new TranslatableComponent("sdm.market.user.mincount.tooltip"));
             }
 
             @Override
@@ -163,7 +164,7 @@ public class SearchPanel extends Panel {
         add(maxCountBox = new MarketTextBox(this){
             @Override
             public void addMouseOverText(TooltipList list) {
-                list.add(Component.translatable("sdm.market.user.maxcount.tooltip"));
+                list.add(new TranslatableComponent("sdm.market.user.maxcount.tooltip"));
             }
 
             @Override
@@ -200,24 +201,28 @@ public class SearchPanel extends Panel {
             }
         });
 
-        add(categoryTitle = new TextField(this));
-        categoryTitle.setText(Component.translatable("sdm.market.user.categories.title"));
-        add(categoriesPanel = new SearchCategoriesPanel(this));
-        categoriesPanel.addWidgets();
+        if(!MarketDataManager.GLOBAL_CONFIG_CLIENT.sellAnyItems){
+            add(categoryTitle = new TextField(this));
+            categoryTitle.setText(new TranslatableComponent("sdm.market.user.categories.title"));
+            add(categoriesPanel = new SearchCategoriesPanel(this));
+            categoriesPanel.addWidgets();
 
-        add(scrollCategoriesPanel = new PanelScrollBar(this, categoriesPanel){
-            @Override
-            public void drawScrollBar(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-                Colors.UI_GOLD_0.draw(graphics,x,y,w,h);
-            }
+            add(scrollCategoriesPanel = new PanelScrollBar(this, categoriesPanel){
+                @Override
+                public void drawScrollBar(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                    Colors.UI_GOLD_0.draw(graphics,x,y,w,h);
+                }
 
-            @Override
-            public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-                RGBA.create(0,0,0, 255/2).draw(graphics,x,y,w,h);
-            }
-        });
+                @Override
+                public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                    Color4I.rgba(0,0,0,255/2).draw(graphics,x,y,w,h);
+                }
+            });
 
-        add(resetButton = new SimpleTextButton(this, Component.literal("Reset"), Icon.empty()) {
+        }
+        System.out.println(MarketDataManager.GLOBAL_CONFIG_CLIENT.sellAnyItems);
+
+        add(resetButton = new SimpleTextButton(this, new TextComponent("Reset"), Icon.EMPTY) {
             @Override
             public void onClicked(MouseButton button) {
                 if(button.isLeft()){
@@ -233,13 +238,13 @@ public class SearchPanel extends Panel {
             }
 
             @Override
-            public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-                RGBA.create(100,100,100, 255/3).drawRoundFill(graphics,x,y,w,h, 4);
+            public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                Color4I.rgba(100,100,100,255/3).draw(graphics,x,y,w,h);
             }
         });
 
         add(moneyField = new MarketTextField(this));
-        moneyField.setText(SDMMarket.moneyString(CurrencyHelper.Basic.getMoney(Minecraft.getInstance().player)));
+        moneyField.setText(SDMMarket.moneyString(SDMShopR.getMoney(Minecraft.getInstance().player)));
 
         add(isEcnabledCheckBox = new MarketCheckBox(this){
             @Override
@@ -250,7 +255,7 @@ public class SearchPanel extends Panel {
             }
         });
         isEcnabledCheckBox.setSelected(SearchData.isEncantable);
-        this.isEcnabledCheckBox.setTitle(Component.translatable("sdm.market.user.search.isenchantable"));
+        this.isEcnabledCheckBox.setTitle(new TranslatableComponent("sdm.market.user.search.isenchantable"));
 
         add(isNoDamageCheckBox = new MarketCheckBox(this){
             @Override
@@ -261,10 +266,10 @@ public class SearchPanel extends Panel {
             }
         });
         isNoDamageCheckBox.setSelected(SearchData.isNoDamaged);
-        this.isNoDamageCheckBox.setTitle(Component.translatable("sdm.market.user.search.isnodamaged"));
+        this.isNoDamageCheckBox.setTitle(new TranslatableComponent("sdm.market.user.search.isnodamaged"));
 
         searchBox.setText(SearchData.name);
-        searchBox.ghostText = Component.translatable("sdm.market.user.search.ghost_text").getString();
+        searchBox.ghostText = new TranslatableComponent("sdm.market.user.search.ghost_text").getString();
         minPriceBox.setText(SearchData.priceFrom > 0 ? String.valueOf(SearchData.priceFrom) : "");
         minPriceBox.ghostText = "◎ 0";
         maxPriceBox.setText(SearchData.priceTo > 0 ? String.valueOf(SearchData.priceTo) : "");
@@ -298,13 +303,24 @@ public class SearchPanel extends Panel {
         maxCountBox.setPos(this.width - wight - 4, minPriceBox.posY + minPriceBox.height + 2);
         maxCountBox.setSize(wight, TextRenderHelper.getTextHeight() + 2);
 
-        categoryTitle.setPos(4, minCountBox.posY + minCountBox.height + 4);
-        categoryTitle.setSize(this.width - 8, TextRenderHelper.getTextHeight());
+        if(categoriesPanel != null){
+            categoryTitle.setPos(4, minCountBox.posY + minCountBox.height + 4);
+            categoryTitle.setSize(this.width - 8, TextRenderHelper.getTextHeight());
 
-        this.categoriesPanel.setPos(4, categoryTitle.posY + categoryTitle.height + 2);
+            this.categoriesPanel.setPos(4, categoryTitle.posY + categoryTitle.height + 2);
 
-        int elementHeight = TextRenderHelper.getTextHeight() + 1 + 2;
-        this.categoriesPanel.setSize(this.width - 8, elementHeight * 6 + 2);
+            int elementHeight = TextRenderHelper.getTextHeight() + 1 + 2;
+            this.categoriesPanel.setSize(this.width - 8, elementHeight * 6 + 2);
+
+            categoriesPanel.alignWidgets();
+
+            this.scrollCategoriesPanel.setPosAndSize(
+                    this.categoriesPanel.posX + this.categoriesPanel.width - this.getScrollbarWidth(),
+                    this.categoriesPanel.posY,
+                    this.getScrollbarWidth(),
+                    this.categoriesPanel.height
+            );
+        }
 
         this.resetButton.setPos(4, this.height - ((TextRenderHelper.getTextHeight() + 2) * 2) - 2 - 1);
         this.resetButton.setSize(this.width - 8, TextRenderHelper.getTextHeight() + 1);
@@ -313,36 +329,34 @@ public class SearchPanel extends Panel {
         this.moneyField.setHeight(TextRenderHelper.getTextHeight());
         this.moneyField.setPos(4, this.height - (TextRenderHelper.getTextHeight() + 3));
 
-        categoriesPanel.alignWidgets();
 
-        this.isEcnabledCheckBox.setPos(4, categoriesPanel.posY + categoriesPanel.height + 2);
+
+        if(categoriesPanel != null)
+            this.isEcnabledCheckBox.setPos(4, categoriesPanel.posY + categoriesPanel.height + 2);
+        else this.isEcnabledCheckBox.setPos(4,minCountBox.posY + minCountBox.height + 2);
+
         this.isEcnabledCheckBox.setSize(this.width - 8, TextRenderHelper.getTextHeight() + 1);
         this.isNoDamageCheckBox.setPos(4, isEcnabledCheckBox.posY + isEcnabledCheckBox.height + 2);
         this.isNoDamageCheckBox.setSize(this.width - 8, TextRenderHelper.getTextHeight() + 1);
 
-        this.scrollCategoriesPanel.setPosAndSize(
-                this.categoriesPanel.getPosX() + this.categoriesPanel.getWidth() - this.getScrollbarWidth(),
-                this.categoriesPanel.getPosY(),
-                this.getScrollbarWidth(),
-                this.categoriesPanel.getHeight()
-        );
+
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(0,0,0,255/3).drawRoundFill(graphics,x,y,w,h,6);
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(0,0,0,255/3).draw(graphics,x,y,w,h);
 
         int a = minPriceBox.posX + minPriceBox.width;
         int b = maxPriceBox.posX + maxPriceBox.width;
 
 
-        RGB.create(255,255,255).draw(graphics,
+        Color4I.rgb(255,255,255).draw(graphics,
                 x + minPriceBox.posX + minPriceBox.width + 2,
                 y + minPriceBox.posY + minPriceBox.height / 2,
                 b - a - 4 - minPriceBox.width,
                 1
                 );
-        RGB.create(255,255,255).draw(graphics,
+        Color4I.rgb(255,255,255).draw(graphics,
                 x + minCountBox.posX + minCountBox.width + 2,
                 y + minCountBox.posY + minCountBox.height / 2,
                 b - a - 4 - minCountBox.width,

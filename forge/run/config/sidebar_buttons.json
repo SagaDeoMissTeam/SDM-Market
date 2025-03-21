@@ -1,6 +1,15 @@
 {
+	"ftbteams": {
+		"my_team": true
+	},
+	"sdmshop": {
+		"shop": true
+	},
 	"sdm_market": {
 		"market": true
+	},
+	"ftbquests": {
+		"quests": true
 	},
 	"ftblibrary": {
 		"toggle.gamemode": true,

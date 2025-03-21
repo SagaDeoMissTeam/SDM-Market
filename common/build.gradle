@@ -35,8 +35,10 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
-    modApi files("../libs/sdm_ui_lib-1.20.1-1.8.2.jar")
-    modApi files("../libs/sdm_economy-1.20.1-1.6.0.jar")
+    modApi ("curse.maven:ftb-quests-forge-289412:4760361")
+    modApi ("curse.maven:ftb-teams-forge-404468:4579981")
+    modApi ("curse.maven:item-filters-309674:4553322")
+    modApi ("curse.maven:sdm-shop-948942:5293015")
     modApi ("dev.ftb.mods:ftb-library:${rootProject.ftb_library_version}") { transitive false }
 }
 

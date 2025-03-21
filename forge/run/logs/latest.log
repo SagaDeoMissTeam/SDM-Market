@@ -1,133 +1,225 @@
-[16:36:00] [main/INFO] (Launcher) ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.20.1-5, --assetsDir, C:\Users\8sixik\.gradle\caches\fabric-loom\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config, sdm_market-common.mixins.json, -mixin.config, sdm_market.mixins.json, --mixin.config, sdm_market-common.mixins.json]
-[16:36:00] [main/INFO] (Launcher) ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.8 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
-[16:36:00] [main/INFO] (ImmediateWindowHandler) Loading ImmediateWindowProvider fmlearlywindow
-[16:36:00] [main/INFO] (EARLYDISPLAY) Trying GL version 4.6
-[16:36:00] [main/INFO] (EARLYDISPLAY) Requested GL version 4.6 got version 4.6
-[16:36:00] [main/INFO] (mixin) SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/8sixik/.gradle/caches/modules-2/files-2.1/dev.architectury/mixin-patched/0.8.5.12/cf1f787f58d3b08b0cb53ecbba7928c09a1893c8/mixin-patched-0.8.5.12.jar%23129!/ Service=ModLauncher Env=CLIENT
-[16:36:01] [pool-5-thread-1/INFO] (EARLYDISPLAY) GL info: NVIDIA GeForce GTX 1060 6GB/PCIe/SSE2 GL version 4.6.0 NVIDIA 566.36, NVIDIA Corporation
-[16:36:01] [main/WARN] (ModFileParser) Mod file C:\Users\8sixik\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[16:36:01] [main/WARN] (ModFileParser) Mod file C:\Users\8sixik\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[16:36:01] [main/WARN] (ModFileParser) Mod file C:\Users\8sixik\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[16:36:01] [main/WARN] (ModFileParser) Mod file C:\Users\8sixik\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file javafmllanguage-1.20.1-47.3.0.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file lowcodelanguage-1.20.1-47.3.0.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file mclanguage-1.20.1-47.3.0.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file fmlcore-1.20.1-47.3.0.jar of type LIBRARY with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file forge-1.20.1-47.3.0-minecraft-merged-1.20.1-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.3.0.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file main of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file  of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@3c2406dd
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file architectury-forge-9.2.14.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file sdm-ui-lib-1095061-5808289.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file sdm-economy-1102542-5749819.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file ftb-library-forge-2001.2.2.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file 13415396966429403249.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file architectury-forge-9.2.14.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file sdm-ui-lib-1095061-5808289.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file sdm-economy-1102542-5749819.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file ftb-library-forge-2001.2.2.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (ModDiscoverer) Found mod file 13415396966429403249.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@5ab45d66
-[16:36:01] [main/INFO] (JarInJarDependencyLocator) No dependencies to load found. Skipping!
-[16:36:03] [main/INFO] (mixin) Compatibility level set to JAVA_17
-[16:36:03] [main/INFO] (LaunchServiceHandler) Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\8sixik\.gradle\caches\fabric-loom\assets, --assetIndex, 1.20.1-5]
-[16:36:03] [main/INFO] (mixin) Remapping refMap sdm_ui_lib-common-refmap.json using RemapperChain (Architectury Patched)
-[16:36:03] [main/INFO] (unprotect) Found 7423 Minecraft classes
-[16:36:03] [main/INFO] (mixin) Remapping refMap architectury-forge-refmap.json using RemapperChain (Architectury Patched)
-[16:36:03] [main/INFO] (mixin) Remapping refMap architectury-common-refmap.json using RemapperChain (Architectury Patched)
-[16:36:03] [main/INFO] (mixin) Remapping refMap ftb-library-common-refmap.json using RemapperChain (Architectury Patched)
-[16:36:03] [main/INFO] (mixin) Remapping refMap sdm_economy-common-refmap.json using RemapperChain (Architectury Patched)
-[13мар.2025 16:36:09.075] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 162 milliseconds
-[13мар.2025 16:36:10.803] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/8sixik/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/forge-1.20.1-47.3.0-minecraft-merged/1.20.1-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.3.0/forge-1.20.1-47.3.0-minecraft-merged-1.20.1-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.3.0.jar%23199!/assets/.mcassetsroot' uses unexpected schema
-[13мар.2025 16:36:10.805] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/8sixik/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/forge-1.20.1-47.3.0-minecraft-merged/1.20.1-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.3.0/forge-1.20.1-47.3.0-minecraft-merged-1.20.1-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.3.0.jar%23199!/data/.mcassetsroot' uses unexpected schema
-[13мар.2025 16:36:10.832] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[13мар.2025 16:36:10.841] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[13мар.2025 16:36:10.948] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[13мар.2025 16:36:11.283] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
-[13мар.2025 16:36:11.283] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
-[13мар.2025 16:36:11.358] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
-[13мар.2025 16:36:11.361] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
-[13мар.2025 16:36:11.362] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_economy:update_client_data
-[13мар.2025 16:36:11.362] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id ftblibrary:edit_nbt
-[13мар.2025 16:36:11.366] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id ftblibrary:edit_nbt_response
-[13мар.2025 16:36:11.366] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_economy:update_server_data
-[13мар.2025 16:36:11.369] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id ftblibrary:sync_known_server_registries
-[13мар.2025 16:36:11.371] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id ftblibrary:edit_config
-[13мар.2025 16:36:11.448] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:create_category
-[13мар.2025 16:36:11.489] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:edit_category
-[13мар.2025 16:36:11.506] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:create_category_entry
-[13мар.2025 16:36:11.522] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:edit_category_entry
-[13мар.2025 16:36:11.544] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:invoke_sync_admin_category
-[13мар.2025 16:36:11.566] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:sync_admin_category
-[13мар.2025 16:36:11.584] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:sync_market_config
-[13мар.2025 16:36:11.602] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:edit_market_config
-[13мар.2025 16:36:11.616] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:open_market_config
-[13мар.2025 16:36:11.633] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:open_market_screen
-[13мар.2025 16:36:11.647] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:sync_market_data
-[13мар.2025 16:36:11.666] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:update_ui
-[13мар.2025 16:36:11.681] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:send_categories
-[13мар.2025 16:36:11.696] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:sync_user_data
-[13мар.2025 16:36:11.712] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:create_offer
-[13мар.2025 16:36:11.727] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:buy_offer
-[13мар.2025 16:36:11.741] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:take_basket_entry
-[13мар.2025 16:36:11.754] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:close_entry
-[13мар.2025 16:36:11.767] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:sync_global_config
-[13мар.2025 16:36:11.779] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:send_clear_market_data
-[13мар.2025 16:36:11.793] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:send_delete_market_entry
-[13мар.2025 16:36:11.806] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:send_get_market_category
-[13мар.2025 16:36:11.819] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id sdm_market:send_get_market_entries
-[13мар.2025 16:36:11.831] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:send_market_category
-[13мар.2025 16:36:11.843] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id sdm_market:send_market_entry
-[13мар.2025 16:36:12.860] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: []
-[13мар.2025 16:36:13.036] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources
-[13мар.2025 16:36:13.199] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[13мар.2025 16:36:13.251] [Worker-Main-9/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
-[13мар.2025 16:36:14.178] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'sdm_market:custom_icon#inventory' referenced from: sdm_market:custom_icon#inventory: java.io.FileNotFoundException: sdm_market:models/item/custom_icon.json
-[13мар.2025 16:36:14.227] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.3.0 Target: 47.4.0
-[13мар.2025 16:36:16.326] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[13мар.2025 16:36:16.327] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[13мар.2025 16:36:16.376] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Headset Earphone (HyperX 7.1 Audio)
-[13мар.2025 16:36:16.377] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[13мар.2025 16:36:16.517] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
-[13мар.2025 16:36:16.528] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[13мар.2025 16:36:16.531] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[13мар.2025 16:36:16.532] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[13мар.2025 16:36:16.533] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[13мар.2025 16:36:16.536] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[13мар.2025 16:36:16.538] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[13мар.2025 16:36:16.538] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[13мар.2025 16:36:16.539] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[13мар.2025 16:36:16.809] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[13мар.2025 16:36:16.868] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[13мар.2025 16:36:16.870] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[13мар.2025 16:36:16.871] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[13мар.2025 16:36:17.453] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[13мар.2025 16:36:19.809] [Render thread/WARN] [net.minecraftforge.common.ForgeHooks/WP]: The following mods have version differences that were not resolved:
-generated_bd10047 (version 1 -> MISSING)
+[13:24:11] [main/INFO] (Launcher) ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.18.2-1.18, --assetsDir, C:\Users\Wobblecraft\.gradle\caches\fabric-loom\assets, --gameDir, ., --fml.forgeVersion, 40.2.9, --fml.mcVersion, 1.18.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220404.173914, -mixin.config, sdm_market-common.mixins.json, -mixin.config, sdm_market.mixins.json, --mixin.config, sdm_market-common.mixins.json]
+[13:24:11] [main/INFO] (Launcher) ModLauncher 9.1.3+9.1.3+main.9b69c82a starting: java version 17.0.13 by Eclipse Adoptium
+[13:24:11] [main/INFO] (mixin) SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Wobblecraft/.gradle/caches/modules-2/files-2.1/dev.architectury/mixin-patched/0.8.5.12/cf1f787f58d3b08b0cb53ecbba7928c09a1893c8/mixin-patched-0.8.5.12.jar%2321!/ Service=ModLauncher Env=CLIENT
+[13:24:11] [main/WARN] (ModFileParser) Mod file C:\Users\Wobblecraft\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.18.2-40.2.9\f8c2ae274ba0d39da23d0c173982e53f0b14d66d\javafmllanguage-1.18.2-40.2.9.jar is missing mods.toml file
+[13:24:11] [main/WARN] (ModFileParser) Mod file C:\Users\Wobblecraft\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.18.2-40.2.9\14d7918b04a606bfe7b8ab2bfdb0850552ccccbd\lowcodelanguage-1.18.2-40.2.9.jar is missing mods.toml file
+[13:24:11] [main/WARN] (ModFileParser) Mod file C:\Users\Wobblecraft\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.18.2-40.2.9\64203f2c80bfd98df8054e4ba9dfbdf4976b677a\mclanguage-1.18.2-40.2.9.jar is missing mods.toml file
+[13:24:11] [main/WARN] (ModFileParser) Mod file C:\Users\Wobblecraft\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.18.2-40.2.9\b906edb362c2314b1d23155e078e62abc2b9e58f\fmlcore-1.18.2-40.2.9.jar is missing mods.toml file
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file javafmllanguage-1.18.2-40.2.9.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file lowcodelanguage-1.18.2-40.2.9.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file mclanguage-1.18.2-40.2.9.jar of type LANGPROVIDER with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file fmlcore-1.18.2-40.2.9.jar of type LIBRARY with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file main of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file  of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.MinecraftLocator@f6e9c18
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file architectury-forge-4.12.94.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file ftb-quests-forge-289412-4760361.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file ftb-teams-forge-404468-4579981.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file item-filters-309674-4553322.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file sdm-shop-948942-5293015.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file ftb-library-forge-1802.3.11-build.177.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file 10534050850810143370.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file architectury-forge-4.12.94.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file ftb-quests-forge-289412-4760361.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file ftb-teams-forge-404468-4579981.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file item-filters-309674-4553322.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file sdm-shop-948942-5293015.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file ftb-library-forge-1802.3.11-build.177.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (ModDiscoverer) Found mod file 10534050850810143370.jar of type MOD with provider net.minecraftforge.fml.loading.moddiscovery.ClasspathLocator@27bd124a
+[13:24:11] [main/INFO] (JarInJarDependencyLocator) No dependencies to load found. Skipping!
+[13:24:13] [main/INFO] (mixin) Compatibility level set to JAVA_17
+[13:24:13] [main/INFO] (LaunchServiceHandler) Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Wobblecraft\.gradle\caches\fabric-loom\assets, --assetIndex, 1.18.2-1.18]
+[13:24:13] [main/INFO] (unprotect) Found 6391 Minecraft classes
+[13:24:13] [main/WARN] (mixin) Reference map 'sdmshop.refmap.json' for sdmshop.mixins.json could not be read. If this is a development environment you can ignore this message
+[13:24:13] [main/INFO] (mixin) Remapping refMap ftb-library-common-refmap.json using RemapperChain (Architectury Patched)
+[13:24:13] [main/INFO] (mixin) Remapping refMap architectury-forge-refmap.json using RemapperChain (Architectury Patched)
+[13:24:13] [main/INFO] (mixin) Remapping refMap architectury-common-refmap.json using RemapperChain (Architectury Patched)
+[13:24:13] [main/INFO] (mixin) Remapping refMap item-filters-common-refmap.json using RemapperChain (Architectury Patched)
+[13:24:21] [Render thread/WARN] (Minecraft) Assets URL 'union:/C:/Users/Wobblecraft/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/forge-1.18.2-40.2.9-minecraft-merged/1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9/forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/assets/.mcassetsroot' uses unexpected schema
+[13:24:21] [Render thread/WARN] (Minecraft) Assets URL 'union:/C:/Users/Wobblecraft/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/forge-1.18.2-40.2.9-minecraft-merged/1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9/forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/data/.mcassetsroot' uses unexpected schema
+[13:24:21] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[13:24:21] [Render thread/INFO] (Minecraft) Setting user: Dev
+[13:24:21] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.2.2 SNAPSHOT
+[13:24:23] [modloading-worker-0/INFO] (ForgeMod) Forge mod loading, version 40.2.9, for MC 1.18.2 with MCP 20220404.173914
+[13:24:23] [modloading-worker-0/INFO] (MinecraftForge) MinecraftForge v40.2.9 Initialized
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id architectury:sync_ids
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id architectury:sync_ids
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftblibrary:edit_nbt
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbteams:sync_teams
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbteams:sync_message_history
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftblibrary:edit_nbt_response
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbteams:open_gui
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftblibrary:sync_known_server_registries
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbteams:open_my_team_gui
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbteams:update_settings
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbteams:update_settings_response
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbteams:send_message
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbteams:send_message_response
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbteams:update_presence
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbteams:create_party
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbteams:player_gui_operation
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdmshop:sync_shop
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdmshop:sync_shop_data
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdmshop:update_money
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdmshop:update_edit_mode
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:edit_shop_tab
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:create_category
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:edit_shop_entry
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id itemfilters:main/14e7fa1454283aec8ae811ef844ada28
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id itemfilters:main/14e7fa1454283aec8ae811ef844ada28
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id itemfilters:main/8f6a899247753217b9d86ab427a2b279
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id itemfilters:main/8f6a899247753217b9d86ab427a2b279
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:edit_category
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdmshop:reload_client
+[13:24:23] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:create_category_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:create_shop_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:create_shop_tab
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:edit_category_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:move_shop_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:move_shop_tab
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdmshop:buy_shop_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:invoke_sync_admin_category
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:sync_admin_category
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:sync_market_config
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:edit_market_config
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:open_market_config
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:open_market_screen
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:sync_market_data
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:update_ui
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:send_categories
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:sync_user_data
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:create_offer
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:buy_offer
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:take_basket_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:close_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:sync_global_config
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:send_clear_market_data
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:send_delete_market_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:send_get_market_category
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id sdm_market:send_get_market_entries
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:send_market_category
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id sdm_market:send_market_entry
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:sync_quests
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:sync_team_data
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:update_task_progress
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:submit_task
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:claim_reward
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:claim_reward_response
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:sync_editing_mode
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:get_emergency_items
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:create_other_team_data
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:claim_all_rewards
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:claim_choice_reward
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:display_completion_toast
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:display_reward_toast
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:display_item_reward_toast
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:toggle_pinned
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:toggle_pinned_response
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:toggle_chapter_pinned
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:toggle_chapter_pinned_response
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:toggle_editing_mode
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:force_save
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:update_team_data
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:set_custom_image
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:object_started
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:object_completed
+[13:24:24] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:object_started_reset
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:object_completed_reset
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:sync_lock
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:reset_reward
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:team_data_changed
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:task_screen_config_req
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:task_screen_config_resp
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:change_progress
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:create_object
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:create_object_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:create_task_at
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:delete_object
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:delete_object_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:edit_object
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:edit_object_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:move_chapter
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:move_chapter_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:move_quest
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:move_quest_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:change_chapter_group
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:change_chapter_group_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:move_chapter_group
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:move_chapter_group_response
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:sync_reward_blocking
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:copy_quest
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering C2S receiver with id ftbquests:copy_chapter_image
+[13:24:25] [modloading-worker-0/INFO] (NetworkManagerImpl) Registering S2C receiver with id ftbquests:open_quest_book
+[13:24:27] [Render thread/INFO] (Minecraft) Narrator library for x64 successfully loaded
+[13:24:27] [Render thread/INFO] (ForgeGameTestHooks) Enabled Gametest Namespaces: []
+[13:24:28] [Render thread/INFO] (Minecraft) Reloading ResourceManager: Default, Mod Resources
+[13:24:28] [Worker-Main-22/INFO] (SDMShopR) SDM
+[13:24:29] [Forge Version Check/INFO] (VersionChecker) [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[13:24:30] [Forge Version Check/INFO] (VersionChecker) [forge] Found status: OUTDATED Current: 40.2.9 Target: 40.3.0
+[13:24:38] [Worker-Main-13/WARN] (Minecraft) Unable to load model: 'sdm_market:custom_icon#inventory' referenced from: sdm_market:custom_icon#inventory: java.io.FileNotFoundException: sdm_market:models/item/custom_icon.json
+[13:24:42] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on �������� (2- fifine Headset)
+[13:24:42] [Render thread/INFO] (Minecraft) Sound engine started
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[13:24:42] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[13:24:44] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[13:24:44] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[13:24:44] [Render thread/INFO] (Minecraft) Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[13:24:44] [Realms Notification Availability checker #1/INFO] (Minecraft) Could not authorize you against Realms server: Invalid session id
+[13:24:57] [Render thread/WARN] (ForgeHooks) The following mods have version differences that were not resolved:
+generated_a61f429 (version 1 -> MISSING)
 Things may not work well.
-[13мар.2025 16:36:20.490] [Render thread/WARN] [net.minecraft.server.MinecraftServer/]: Missing data pack mod:generated_bd10047
-[13мар.2025 16:36:21.898] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[13мар.2025 16:36:22.022] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1271 advancements
-[13мар.2025 16:36:22.639] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
-[13мар.2025 16:36:22.640] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[13мар.2025 16:36:22.917] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[13мар.2025 16:36:24.371] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[13мар.2025 16:36:24.371] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[13мар.2025 16:36:24.372] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[13мар.2025 16:36:24.444] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[13мар.2025 16:36:24.945] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 44%
-[13мар.2025 16:36:25.258] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[13мар.2025 16:36:25.265] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 2332 ms
-[13мар.2025 16:36:25.895] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[13мар.2025 16:36:25.897] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[13мар.2025 16:36:26.072] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[13мар.2025 16:36:26.744] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[13мар.2025 16:36:26.790] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:f08f9e23] logged in with entity id 102 at (-79.96798685346144, -60.0, 130.86049850906676)
-[13мар.2025 16:36:26.877] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[13мар.2025 16:36:27.664] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 50 advancements
-[13мар.2025 16:37:00.909] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
-[13мар.2025 16:37:00.935] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
-[13мар.2025 16:37:00.936] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
-[13мар.2025 16:37:00.951] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
-[13мар.2025 16:37:01.006] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[13мар.2025 16:37:01.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[13мар.2025 16:37:01.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[13мар.2025 16:37:01.608] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[13:24:57] [Render thread/INFO] (GameData) Injecting existing registry data into this CLIENT instance
+[13:24:57] [Render thread/WARN] (Minecraft) Missing data pack mod:generated_a61f429
+[13:24:58] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:24:58] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:24:58] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:24:58] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[13:24:58] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[13:24:58] [Render thread/WARN] (Minecraft) Ambiguity between arguments [ftbteams, info, server_id] and [ftbteams, info, team] with inputs: [server_id]
+[13:25:00] [Render thread/INFO] (Minecraft) Loaded 7 recipes
+[13:25:01] [Render thread/INFO] (Minecraft) Loaded 1141 advancements
+[13:25:01] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[13:25:01] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.18.2
+[13:25:01] [Server thread/INFO] (Minecraft) Generating keypair
+[13:25:01] [Server thread/INFO] (FTB Teams) loaded team data: 1 known players, 1 teams total
+[13:25:02] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[13:25:03] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[13:25:03] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[13:25:03] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[13:25:03] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[13:25:04] [Render thread/INFO] (Minecraft) Preparing spawn area: 23%
+[13:25:04] [Server thread/INFO] (PermissionAPI) Successfully initialized permission handler forge:default_handler
+[13:25:04] [Render thread/INFO] (Minecraft) Time elapsed: 2466 ms
+[13:25:04] [Server thread/INFO] (FTB Quests) Loading quest progression data from E:\SDMMarket\forge\run\config\ftbquests\quests
+[13:25:04] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[13:25:04] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[13:25:04] [Render thread/WARN] (SystemPropertyUtil) Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[13:25:05] [Netty Local Client IO #0/INFO] (NetworkHooks) Connected to a modded server.
+[13:25:05] [Server thread/INFO] (AdvancementLoadFix) Using new advancement loading for net.minecraft.server.PlayerAdvancements@2c5d42f5
+[13:25:05] [Server thread/INFO] (Minecraft) Dev[local:E:69685ac4] logged in with entity id 83 at (-27.980850312388565, -60.0, -2.4921329368041256)
+[13:25:05] [Server thread/INFO] (Minecraft) Dev joined the game
+[13:25:06] [Render thread/INFO] (FTB Teams) Updated presence of Dev
+[13:25:06] [Render thread/INFO] (Minecraft) Loaded 5 advancements
+[13:27:22] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[13:27:22] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[13:27:22] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[13:27:22] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[13:27:27] [Render thread/INFO] (Minecraft) Stopping!
+[13:27:27] [Server thread/INFO] (Minecraft) Dev lost connection: Disconnected
+[13:27:27] [Server thread/INFO] (Minecraft) Dev left the game
+[13:27:27] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[13:27:27] [Server thread/INFO] (Minecraft) Stopping server
+[13:27:27] [Server thread/INFO] (Minecraft) Saving players
+[13:27:27] [Server thread/INFO] (Minecraft) Saving worlds
+[13:27:28] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[13:27:30] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[13:27:30] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[13:27:30] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World (1)): All chunks are saved
+[13:27:30] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[13:27:30] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[13:27:30] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved

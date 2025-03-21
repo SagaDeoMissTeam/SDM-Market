@@ -1,18 +1,19 @@
 package net.sixik.sdmmarket.client.gui.user.search;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.Theme;
 import dev.ftb.mods.ftblibrary.ui.input.MouseButton;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.sixik.sdmmarket.client.SearchData;
+import net.sixik.sdmmarket.client.gui.ui.TextRenderHelper;
 import net.sixik.sdmmarket.client.gui.user.MarketUserScreen;
 import net.sixik.sdmmarket.client.widgets.MarketCheckBox;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
-import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
+
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
-import net.sixik.v2.color.RGBA;
-import net.sixik.v2.render.TextRenderHelper;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,14 +59,14 @@ public class SearchCategoriesPanel extends Panel {
                 box.setSelected(true);
             }
 
-            box.setTitle(Component.translatable(category.categoryName));
+            box.setTitle(new TranslatableComponent(category.categoryName));
             box.setSize(this.width - 4, TextRenderHelper.getTextHeight() + 1);
             checkBoxes.add(box);
         }
 
         checkBoxes.add(new MarketCheckBox(this) {
             @Override
-            public void draw(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+            public void draw(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
 
             }
 
@@ -89,7 +90,7 @@ public class SearchCategoriesPanel extends Panel {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(100,100,100, 255/3).draw(graphics,x,y,w,h);
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(100,100,100,255/3).draw(graphics,x,y,w,h);
     }
 }

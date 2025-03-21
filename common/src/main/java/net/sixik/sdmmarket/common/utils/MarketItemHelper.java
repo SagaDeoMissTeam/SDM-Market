@@ -12,7 +12,7 @@ public class MarketItemHelper {
         boolean flag = stack2.hasTag();
         if(flag && ItemStack.matches(stack1, stack2)) {
            return true;
-        } else return !flag && ItemStack.isSameItem(stack1, stack2) || ItemStack.matches(stack1, stack2);
+        } else return !flag && ItemStack.isSame(stack1, stack2) || ItemStack.matches(stack1, stack2);
     }
 
     public static int countItems(Player p, ItemStack item) {
@@ -26,7 +26,7 @@ public class MarketItemHelper {
                  */
                 if(flag && ItemStack.matches(p.getInventory().getItem(a), item)) {
                     totalamm += p.getInventory().getItem(a).getCount();
-                } else if(!flag && ItemStack.isSameItem(p.getInventory().getItem(a), item) || ItemStack.matches(p.getInventory().getItem(a), item)){
+                } else if(!flag && ItemStack.isSame(p.getInventory().getItem(a), item) || ItemStack.matches(p.getInventory().getItem(a), item)){
                     totalamm += p.getInventory().getItem(a).getCount();
                 }
             }
@@ -44,7 +44,7 @@ public class MarketItemHelper {
         for (int i = 0; i < inventory.getContainerSize(); i++) {
             ItemStack stack = inventory.getItem(i);
 
-            if (!stack.isEmpty() && (ignoreNBT ? ItemStack.isSameItem(stack, item) : ItemStack.matches(stack, item))) {
+            if (!stack.isEmpty() && (ignoreNBT ? ItemStack.isSame(stack, item) : ItemStack.matches(stack, item))) {
                 totalAmount += stack.getCount();
             }
         }
@@ -62,7 +62,7 @@ public class MarketItemHelper {
 
             ItemStack stack = inventory.getItem(i);
 
-            if (!stack.isEmpty() && (ignoreNBT ? ItemStack.isSameItem(stack, item) : ItemStack.matches(stack, item))) {
+            if (!stack.isEmpty() && (ignoreNBT ? ItemStack.isSame(stack, item) : ItemStack.matches(stack, item))) {
                 int stackCount = stack.getCount();
 
                 if (stackCount <= amountLeft) {

@@ -1,8 +1,10 @@
 package net.sixik.sdmmarket.client.gui.admin;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.sixik.sdmmarket.client.gui.ui.Colors;
 import net.sixik.sdmmarket.client.gui.admin.category.CategoryButton;
 import net.sixik.sdmmarket.client.gui.admin.category.CategoryPanel;
 import net.sixik.sdmmarket.client.gui.admin.entry.EntryButton;
@@ -11,8 +13,7 @@ import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
 import net.sixik.sdmmarket.common.market.config.AbstractMarketConfigEntry;
 import net.sixik.sdmmarket.common.network.admin.InvokeSyncAdminCategoryC2S;
-import net.sixik.v2.color.Colors;
-import net.sixik.v2.color.RGBA;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,6 @@ public class MarketAdminScreen extends BaseScreen {
     public boolean onInit() {
         setWidth(getScreen().getGuiScaledWidth() * 4/5);
         setHeight(getScreen().getGuiScaledHeight() * 4/5);
-        closeContextMenu();
 
         return true;
     }
@@ -51,25 +51,25 @@ public class MarketAdminScreen extends BaseScreen {
         add(categoryPanel = new CategoryPanel(this));
         add(scrollCategoryPanel = new PanelScrollBar(this, ScrollBar.Plane.VERTICAL, categoryPanel) {
             @Override
-            public void drawScrollBar(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+            public void drawScrollBar(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
                 Colors.UI_GOLD_0.draw(graphics,x,y,w,h);
             }
 
             @Override
-            public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-                RGBA.create(0,0,0, 255/2).draw(graphics,x,y,w,h);
+            public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                Color4I.rgba(0,0,0,255/2).draw(graphics,x,y,w,h);
             }
         });
         add(entryPanel = new EntryPanel(this));
         add(scrollEntryPanel = new PanelScrollBar(this, ScrollBar.Plane.VERTICAL, entryPanel) {
             @Override
-            public void drawScrollBar(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+            public void drawScrollBar(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
                 Colors.UI_GOLD_0.draw(graphics,x,y,w,h);
             }
 
             @Override
-            public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-                RGBA.create(0,0,0, 255/2).draw(graphics,x,y,w,h);
+            public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                Color4I.rgba(0,0,0,255/2).draw(graphics,x,y,w,h);
             }
         });
 
@@ -87,17 +87,17 @@ public class MarketAdminScreen extends BaseScreen {
 
 
         this.scrollCategoryPanel.setPosAndSize(
-                this.categoryPanel.getPosX() + this.categoryPanel.getWidth() - this.getScrollbarWidth(),
-                this.categoryPanel.getPosY(),
+                this.categoryPanel.posX + this.categoryPanel.width - this.getScrollbarWidth(),
+                this.categoryPanel.posY,
                 this.getScrollbarWidth(),
-                this.categoryPanel.getHeight()
+                this.categoryPanel.height
         );
 
         this.scrollEntryPanel.setPosAndSize(
-                this.entryPanel.getPosX() + this.entryPanel.getWidth() - this.getScrollbarWidth(),
-                this.entryPanel.getPosY(),
+                this.entryPanel.posX + this.entryPanel.width - this.getScrollbarWidth(),
+                this.entryPanel.posY,
                 this.getScrollbarWidth(),
-                this.entryPanel.getHeight() - 10
+                this.entryPanel.height - 10
         );
 
         addCategoryButtons();
@@ -146,7 +146,7 @@ public class MarketAdminScreen extends BaseScreen {
     }
 
     public void addCategoryButtons() {
-        categoryPanel.getWidgets().clear();
+        categoryPanel.widgets.clear();
         List<CategoryButton> list = new ArrayList<>();
 
         for (MarketConfigCategory category : MarketDataManager.CONFIG_CLIENT.CATEGORIES) {
@@ -174,7 +174,7 @@ public class MarketAdminScreen extends BaseScreen {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
 
     }
 

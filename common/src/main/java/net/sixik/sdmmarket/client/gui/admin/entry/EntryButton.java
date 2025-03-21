@@ -1,31 +1,32 @@
 package net.sixik.sdmmarket.client.gui.admin.entry;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import dev.ftb.mods.ftblibrary.config.ConfigGroup;
 import dev.ftb.mods.ftblibrary.config.ui.EditConfigScreen;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.icon.Icon;
 import dev.ftb.mods.ftblibrary.icon.Icons;
 import dev.ftb.mods.ftblibrary.icon.ItemIcon;
 import dev.ftb.mods.ftblibrary.ui.*;
 import dev.ftb.mods.ftblibrary.ui.input.MouseButton;
 import dev.ftb.mods.ftblibrary.util.TooltipList;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderSet;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.client.gui.admin.MarketAdminScreen;
+import net.sixik.sdmmarket.client.gui.ui.GLRenderHelper;
+import net.sixik.sdmmarket.client.gui.ui.TextRenderHelper;
+import net.sixik.sdmmarket.client.gui.ui.Vector2;
+import net.sixik.sdmmarket.client.gui.ui.Vector2f;
 import net.sixik.sdmmarket.common.market.config.*;
 import net.sixik.sdmmarket.common.network.admin.CreateCategoryEntryC2S;
 import net.sixik.sdmmarket.common.network.admin.EditCategoryEntryC2S;
-import net.sixik.v2.color.RGBA;
-import net.sixik.v2.render.GLRenderHelper;
-import net.sixik.v2.render.TextRenderHelper;
-import net.sixik.v2.utils.math.Vector2;
-import net.sixik.v2.utils.math.Vector2f;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class EntryButton extends SimpleTextButton {
 
     public AbstractMarketConfigEntry configEntry;
     public EntryButton(Panel panel, AbstractMarketConfigEntry configEntry) {
-        super(panel, Component.empty(), configEntry != null ? configEntry.getIcon() : Icon.empty());
+        super(panel, TextComponent.EMPTY, configEntry != null ? configEntry.getIcon() : Icon.EMPTY);
         this.configEntry = configEntry;
 
         if(configEntry instanceof ItemTagMarketConfigEntry configEntry1) {
@@ -56,24 +57,24 @@ public class EntryButton extends SimpleTextButton {
     @Override
     public void onClicked(MouseButton button) {
         if(button.isLeft()) {
-
+            
             if(isEdit) {
                 List<ContextMenuItem> fContext1 = new ArrayList<>();
-                fContext1.add(new ContextMenuItem(Component.translatable("sdm.market.admin.entry.tool"), Icons.ADD, (d) -> {
+                fContext1.add(new ContextMenuItem(new TranslatableComponent("sdm.market.admin.entry.tool"), Icons.ADD, () -> {
                     MarketConfigCategory category = ((MarketAdminScreen)getGui()).selectedCategory;
                     DurabilityMarketConfigEntry entry = new DurabilityMarketConfigEntry(category.categoryID, Items.BARRIER.getDefaultInstance());
                     category.entries.add(entry);
                     ((MarketAdminScreen)getGui()).addCategoryEntryButtons();
                     new CreateCategoryEntryC2S(category.categoryID, entry.serialize()).sendToServer();
                 }));
-                fContext1.add(new ContextMenuItem(Component.translatable("sdm.market.admin.entry.item"), Icons.ADD, (d) -> {
+                fContext1.add(new ContextMenuItem(new TranslatableComponent("sdm.market.admin.entry.item"), Icons.ADD, () -> {
                     MarketConfigCategory category = ((MarketAdminScreen)getGui()).selectedCategory;
                     ItemMarketConfigEntry entry = new ItemMarketConfigEntry(category.categoryID, Items.BARRIER.getDefaultInstance());
                     category.entries.add(entry);
                     ((MarketAdminScreen)getGui()).addCategoryEntryButtons();
                     new CreateCategoryEntryC2S(category.categoryID, entry.serialize()).sendToServer();
                 }));
-                fContext1.add(new ContextMenuItem(Component.translatable("sdm.market.admin.entry.tag"), Icons.ADD, (d) -> {
+                fContext1.add(new ContextMenuItem(new TranslatableComponent("sdm.market.admin.entry.tag"), Icons.ADD, () -> {
                     MarketConfigCategory category = ((MarketAdminScreen)getGui()).selectedCategory;
                     ItemTagMarketConfigEntry entry = new ItemTagMarketConfigEntry(category.categoryID);
                     category.entries.add(entry);
@@ -88,11 +89,11 @@ public class EntryButton extends SimpleTextButton {
         } else if(button.isRight() && !isEdit) {
             List<ContextMenuItem> contextMenu = new ArrayList<>();
 
-            contextMenu.add(new ContextMenuItem(Component.translatable("sdm.market.admin.edit"), Icons.SETTINGS, (d) -> {
+            contextMenu.add(new ContextMenuItem(new TranslatableComponent("sdm.market.admin.edit"), Icons.SETTINGS, () -> {
                 editScreen();
             }));
 
-            contextMenu.add(new ContextMenuItem(Component.translatable("sdm.market.delete"), Icons.REMOVE, (d) -> {
+            contextMenu.add(new ContextMenuItem(new TranslatableComponent("sdm.market.delete"), Icons.REMOVE, () -> {
                 ((MarketAdminScreen)getGui()).selectedCategory.entries.removeIf(s -> s.equals(configEntry));
                 ((MarketAdminScreen)getGui()).addCategoryEntryButtons();
 
@@ -110,7 +111,7 @@ public class EntryButton extends SimpleTextButton {
 
             if(configEntry instanceof ItemTagMarketConfigEntry tEntry) {
 
-                list.add(Component.literal("Tag: ").append(tEntry.tagKey.toString()));
+                list.add(new TextComponent("Tag: ").append(tEntry.tagKey.toString()));
 
             } else if (configEntry.getIcon() instanceof ItemIcon icon) {
                 itemStack = icon.getStack();
@@ -119,22 +120,23 @@ public class EntryButton extends SimpleTextButton {
             if (!itemStack.isEmpty())
                 list.add(itemStack.getDisplayName());
 
-            list.add(Component.literal("Min Price: " + (configEntry.minPrice > 0 ? SDMMarket.moneyString(configEntry.minPrice) : "Any Price")));
-            list.add(Component.literal("Max Price: " + (configEntry.maxPrice > 0 ? SDMMarket.moneyString(configEntry.maxPrice) : "Any Price")));
+            list.add(new TextComponent("Min Price: " + (configEntry.minPrice > 0 ? SDMMarket.moneyString(configEntry.minPrice) : "Any Price")));
+            list.add(new TextComponent("Max Price: " + (configEntry.maxPrice > 0 ? SDMMarket.moneyString(configEntry.maxPrice) : "Any Price")));
         }
     }
 
     public void editScreen() {
-        ConfigGroup group = new ConfigGroup("entry", b -> {
+        ConfigGroup group = new ConfigGroup("entry").setNameKey("sidebar_button.sdm.market");
+
+        group.savedCallback = ( s -> {
             openGui();
 
-            if (b) {
+            if (s) {
                 new EditCategoryEntryC2S(((MarketAdminScreen)getGui()).selectedCategory.categoryID, configEntry.entryID, configEntry.serialize()).sendToServer();
             }
-        }).setNameKey("sidebar_button.sdm.market");
+        });
 
-
-        ConfigGroup g = group.getOrCreateSubgroup("market").getOrCreateSubgroup("entry");
+        ConfigGroup g = group.getGroup("market").getGroup("entry");
         configEntry.config(g);
         new EditConfigScreen(group).openGui();
         getGui().refreshWidgets();
@@ -144,7 +146,7 @@ public class EntryButton extends SimpleTextButton {
     private int currentIndex = 0;
 
     @Override
-    public void draw(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void draw(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
         if(isEdit) {
             super.draw(graphics, theme, x, y, w, h);
             return;
@@ -182,7 +184,7 @@ public class EntryButton extends SimpleTextButton {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(0,0,0,255/3).drawRoundFill(graphics,x,y,w,h, 6);
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(0,0,0,255/3).draw(graphics,x,y,w,h);
     }
 }

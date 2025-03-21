@@ -57,7 +57,7 @@ public class MarketUserData implements INBTSerialize {
                         for (MarketUserEntryList otherEntry : otherCategory.entries) {
                             boolean entryExists = false;
                             for (MarketUserEntryList currentEntry : category.entries) {
-                                if (ItemStack.isSameItem(otherEntry.itemStack, currentEntry.itemStack)) {
+                                if (ItemStack.isSame(otherEntry.itemStack, currentEntry.itemStack)) {
                                     entryExists = true;
                                     break;
                                 }

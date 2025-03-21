@@ -3,7 +3,7 @@ package net.sixik.sdmmarket.common.market.user;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
-import net.sixik.sdm_economy.api.CurrencyHelper;
+import net.sdm.sdmshopr.SDMShopR;
 import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.api.MarketAPI;
 import net.sixik.sdmmarket.client.SearchData;
@@ -125,7 +125,7 @@ public class MarketUserEntry implements INBTSerialize {
         MarketPlayerData.PlayerData data = MarketDataManager.getPlayerData(player);
         MarketPlayerData.PlayerData ownerData = MarketDataManager.getPlayerData(player.server, ownerID);
 
-        if(CurrencyHelper.Basic.getMoney(player) < price) return false;
+        if( SDMShopR.getMoney(player) < price) return false;
 
         if(ownerData == null || data == null) return false;
 
@@ -134,7 +134,7 @@ public class MarketUserEntry implements INBTSerialize {
         ownerData.countOffers = Math.min(ownerData.countOffers + 1, MarketDataManager.GLOBAL_CONFIG_SERVER.maxOffersForPlayer);
         ownerData.playerOffers.removeIf(s -> Objects.equals(s, entryID));
 
-        CurrencyHelper.Basic.addMoney(player, -price);
+        SDMShopR.addMoney(player, -price);
         BasketItemEntry itemEntry = new BasketItemEntry(itemStack, count);
         data.playerBasket.basketMoneyEntries.add(itemEntry);
 

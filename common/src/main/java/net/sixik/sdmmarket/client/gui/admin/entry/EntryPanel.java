@@ -1,10 +1,11 @@
 package net.sixik.sdmmarket.client.gui.admin.entry;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.Theme;
-import net.minecraft.client.gui.GuiGraphics;
 import net.sixik.sdmmarket.client.gui.admin.MarketAdminScreen;
-import net.sixik.v2.color.RGBA;
+
 
 public class EntryPanel extends Panel {
 
@@ -23,7 +24,7 @@ public class EntryPanel extends Panel {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(0,0,0,255/3).drawRoundFill(graphics, x,y,w,h, 6);
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(0,0,0, 255/3).draw(graphics,x,y,w,h);
     }
 }

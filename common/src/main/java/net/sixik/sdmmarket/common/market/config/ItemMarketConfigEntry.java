@@ -49,7 +49,7 @@ public class ItemMarketConfigEntry extends AbstractMarketConfigEntry{
 
     @Override
     public void config(ConfigGroup group) {
-        group.addItemStack("item", itemStack, v -> itemStack = v, ItemStack.EMPTY, 1);
+        group.addItemStack("item", itemStack, v -> itemStack = v, ItemStack.EMPTY, true,false);
         super.config(group);
     }
 }

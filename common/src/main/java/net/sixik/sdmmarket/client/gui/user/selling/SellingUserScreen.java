@@ -1,8 +1,8 @@
 package net.sixik.sdmmarket.client.gui.user.selling;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import dev.ftb.mods.ftblibrary.ui.BaseScreen;
 import dev.ftb.mods.ftblibrary.ui.Theme;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.item.ItemStack;
 import net.sixik.sdmmarket.common.market.config.AbstractMarketConfigEntry;
 import net.sixik.sdmmarket.common.market.config.MarketConfigCategory;
@@ -18,7 +18,7 @@ public class SellingUserScreen extends BaseScreen {
     public boolean onInit() {
         setWidth(getScreen().getGuiScaledWidth() * 4/7);
         setHeight(getScreen().getGuiScaledHeight() * 4/6);
-        closeContextMenu();
+
         return true;
     }
 
@@ -48,7 +48,7 @@ public class SellingUserScreen extends BaseScreen {
 
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
 
     }
 

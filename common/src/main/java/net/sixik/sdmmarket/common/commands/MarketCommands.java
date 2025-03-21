@@ -1,7 +1,6 @@
 package net.sixik.sdmmarket.common.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
-import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -29,24 +28,14 @@ public class MarketCommands {
             for (ServerPlayer profile : profiles) {
                 new SendOpenMarketScreenS2C().sendTo(profile);
             }
-        } else if(source.getPlayer() != null) {
-            new SendOpenMarketScreenS2C().sendTo(source.getPlayer());
+        } else if(source.getEntity() != null) {
+            new SendOpenMarketScreenS2C().sendTo((ServerPlayer) source.getEntity());
         }
         return 1;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-    public static void registerCommands(CommandDispatcher<CommandSourceStack> commandSourceStackCommandDispatcher, CommandBuildContext commandBuildContext, Commands.CommandSelection commandSelection) {
+    public static void registerCommands(CommandDispatcher<CommandSourceStack> commandSourceStackCommandDispatcher, Commands.CommandSelection commandSelection) {
         registerCommands(commandSourceStackCommandDispatcher);
     }
 }

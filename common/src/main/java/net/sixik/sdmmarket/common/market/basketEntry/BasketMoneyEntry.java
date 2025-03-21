@@ -1,8 +1,11 @@
 package net.sixik.sdmmarket.common.market.basketEntry;
 
+import dev.ftb.mods.ftbteams.data.ClientTeamManager;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import net.sixik.sdm_economy.api.CurrencyHelper;
+import net.sdm.sdmshopr.SDMShopR;
+
 
 public class BasketMoneyEntry extends AbstractBasketEntry{
 
@@ -15,7 +18,12 @@ public class BasketMoneyEntry extends AbstractBasketEntry{
 
     @Override
     public void givePlayer(Player player) {
-        CurrencyHelper.Basic.addMoney(player, moneyCount);
+
+        if (player instanceof ServerPlayer serverPlayer)
+            SDMShopR.addMoney(serverPlayer, moneyCount);
+        else {
+            SDMShopR.addMoney(ClientTeamManager.INSTANCE.selfKnownPlayer, moneyCount);
+        }
     }
 
     @Override

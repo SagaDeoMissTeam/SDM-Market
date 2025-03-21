@@ -1,10 +1,11 @@
 package net.sixik.sdmmarket.client.widgets;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.TextBox;
 import dev.ftb.mods.ftblibrary.ui.Theme;
-import net.minecraft.client.gui.GuiGraphics;
-import net.sixik.v2.color.RGBA;
+
 
 public class MarketTextBox extends TextBox {
     public MarketTextBox(Panel panel) {
@@ -12,7 +13,7 @@ public class MarketTextBox extends TextBox {
     }
 
     @Override
-    public void drawTextBox(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
-        RGBA.create(100,100,100, 255/3).drawRoundFill(graphics,x,y,w,h,2);
+    public void drawTextBox(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+        Color4I.rgba(100,100,100, 255/3).draw(graphics,x,y,w,h);
     }
 }

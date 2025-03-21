@@ -53,7 +53,7 @@ public class MarketUserManager {
                 for (MarketUserEntryList entry : category.entries) {
                     if(entry.itemStack.hasTag() && ItemStack.isSameItemSameTags(itemStack, entry.itemStack)) {
                         return entry;
-                    } else if(!entry.itemStack.hasTag() && ItemStack.isSameItem(itemStack, entry.itemStack)){
+                    } else if(!entry.itemStack.hasTag() && ItemStack.isSame(itemStack, entry.itemStack)){
                         return entry;
                     }
                 }
@@ -175,7 +175,7 @@ public class MarketUserManager {
         MarketUserEntryList entryList = null;
 
         for (MarketUserEntryList entry : marketUserCategory.entries) {
-            if(ItemStack.isSameItem(offerData.item, entry.itemStack)) {
+            if(ItemStack.isSame(offerData.item, entry.itemStack)) {
                 entryList = entry;
                 break;
             }

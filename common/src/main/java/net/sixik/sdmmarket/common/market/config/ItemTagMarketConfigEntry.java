@@ -6,10 +6,9 @@ import dev.ftb.mods.ftblibrary.config.NameMap;
 import dev.ftb.mods.ftblibrary.icon.Icon;
 import dev.ftb.mods.ftblibrary.icon.ItemIcon;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -39,18 +38,18 @@ public class ItemTagMarketConfigEntry extends AbstractMarketConfigEntry{
 
     @Override
     public boolean isAvailable(ItemStack itemStack) {
-        Optional<TagKey<Item>> op = BuiltInRegistries.ITEM.getTags().filter(s -> s.getFirst().location().equals(tagKey)).findFirst().map(Pair::getFirst);
+        Optional<TagKey<Item>> op = Registry.ITEM.getTags().filter(s -> s.getFirst().location().equals(tagKey)).findFirst().map(Pair::getFirst);
         return op.filter(itemStack::is).isPresent();
     }
 
     public Optional<HolderSet.Named<Item>> getItems() {
-        return BuiltInRegistries.ITEM.getTags().filter(s -> s.getFirst().location().equals(tagKey)).findFirst().map(Pair::getSecond);
+        return Registry.ITEM.getTags().filter(s -> s.getFirst().location().equals(tagKey)).findFirst().map(Pair::getSecond);
     }
 
     public NameMap<String> getTags(){
         List<String> str = new ArrayList<>();
 
-        BuiltInRegistries.ITEM.getTags().forEach(s -> {
+        Registry.ITEM.getTags().forEach(s -> {
             str.add(s.getFirst().location().toString());
         });
         return NameMap.of(DEFAULT.toString(), str).create();
@@ -58,7 +57,7 @@ public class ItemTagMarketConfigEntry extends AbstractMarketConfigEntry{
 
     @Override
     public Icon getIcon() {
-        Optional<Pair<TagKey<Item>, HolderSet.Named<Item>>> optional = BuiltInRegistries.ITEM.getTags().filter(s -> s.getFirst().location().equals(tagKey)).findFirst();
+        Optional<Pair<TagKey<Item>, HolderSet.Named<Item>>> optional = Registry.ITEM.getTags().filter(s -> s.getFirst().location().equals(tagKey)).findFirst();
         if(optional.isEmpty()) return ItemIcon.getItemIcon(Items.NAME_TAG);
 
         HolderSet.Named<Item> itemHolder = optional.get().getSecond();

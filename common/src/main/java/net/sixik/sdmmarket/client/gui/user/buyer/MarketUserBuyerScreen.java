@@ -1,10 +1,12 @@
 package net.sixik.sdmmarket.client.gui.user.buyer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.ui.BaseScreen;
 import dev.ftb.mods.ftblibrary.ui.PanelScrollBar;
 import dev.ftb.mods.ftblibrary.ui.Theme;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.item.ItemStack;
+import net.sixik.sdmmarket.client.gui.ui.Colors;
 import net.sixik.sdmmarket.common.data.MarketDataManager;
 import net.sixik.sdmmarket.common.market.user.MarketUserCategory;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
@@ -54,7 +56,17 @@ public class MarketUserBuyerScreen extends BaseScreen{
         entriesPanel.addWidgets();
         add(infoPanel = new MarketUserBuyerInfoPanel(this));
         infoPanel.addWidgets();
-        add(this.scrollEntriesPanel = new PanelScrollBar(this, entriesPanel));
+        add(this.scrollEntriesPanel = new PanelScrollBar(this, entriesPanel){
+            @Override
+            public void drawScrollBar(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                Colors.UI_GOLD_0.draw(graphics,x,y,w,h);
+            }
+
+            @Override
+            public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
+                Color4I.rgba(0,0,0,255/2).draw(graphics,x,y,w,h);
+            }
+        });
     }
 
     @Override
@@ -67,10 +79,10 @@ public class MarketUserBuyerScreen extends BaseScreen{
         infoPanel.alignWidgets();
 
         this.scrollEntriesPanel.setPosAndSize(
-                this.entriesPanel.getPosX() + this.entriesPanel.getWidth() - this.getScrollbarWidth(),
-                this.entriesPanel.getPosY(),
+                this.entriesPanel.posX + this.entriesPanel.width - this.getScrollbarWidth(),
+                this.entriesPanel.posY,
                 this.getScrollbarWidth(),
-                this.entriesPanel.getHeight()
+                this.entriesPanel.height
         );
     }
 
@@ -80,6 +92,6 @@ public class MarketUserBuyerScreen extends BaseScreen{
 
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
     }
 }

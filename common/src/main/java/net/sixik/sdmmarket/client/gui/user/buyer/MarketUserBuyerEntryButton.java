@@ -1,19 +1,20 @@
 package net.sixik.sdmmarket.client.gui.user.buyer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.ftb.mods.ftblibrary.icon.Color4I;
 import dev.ftb.mods.ftblibrary.icon.Icon;
-import dev.ftb.mods.ftblibrary.ui.Panel;
 import dev.ftb.mods.ftblibrary.ui.SimpleTextButton;
 import dev.ftb.mods.ftblibrary.ui.Theme;
 import dev.ftb.mods.ftblibrary.ui.input.MouseButton;
 import dev.ftb.mods.ftblibrary.util.TooltipList;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.TooltipFlag;
 import net.sixik.sdmmarket.SDMMarket;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
-import net.sixik.v2.color.RGBA;
 
 import java.util.Objects;
 
@@ -23,11 +24,11 @@ public class MarketUserBuyerEntryButton extends SimpleTextButton {
 
     public MarketUserBuyerEntriesPanel panel;
     public MarketUserBuyerEntryButton(MarketUserBuyerEntriesPanel panel, MarketUserEntry entry) {
-        super(panel, Component.empty(), Icon.empty());
+        super(panel, TextComponent.EMPTY, Icon.EMPTY);
         this.panel = panel;
         this.entry = entry;
 
-        setTitle(Component.literal(SDMMarket.moneyString(entry.price)));
+        setTitle(new TextComponent(SDMMarket.moneyString(entry.price)));
     }
 
     @Override
@@ -38,30 +39,30 @@ public class MarketUserBuyerEntryButton extends SimpleTextButton {
     }
 
     @Override
-    public void drawBackground(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void drawBackground(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
         if(panel.panel.selectedEntry != null && Objects.equals(panel.panel.selectedEntry.entryID, entry.entryID)) {
-            RGBA.create(255,255,255,255/3).drawRoundFill(graphics,x,y,w,h, 6);
+            Color4I.rgba(255,255,255,255/3).draw(graphics,x,y,w,h);
         } else {
-            RGBA.create(100, 100, 100, 255 / 3).drawRoundFill(graphics, x, y, w, h, 6);
+            Color4I.rgba(100,100,100,255/3).draw(graphics, x, y, w, h);
         }
     }
 
     @Override
     public void addMouseOverText(TooltipList list) {
 
-        entry.itemStack.getTooltipLines(Minecraft.getInstance().player, TooltipFlag.NORMAL).forEach(list::add);
+        entry.itemStack.getTooltipLines(Minecraft.getInstance().player, TooltipFlag.Default.NORMAL).forEach(list::add);
 
         if(entry.itemStack.isDamageableItem() && entry.itemStack.isDamaged()){
-            list.add(Component.literal("Damage: " + (entry.itemStack.getMaxDamage() - entry.itemStack.getDamageValue()) + "/" + entry.itemStack.getMaxDamage()));
+            list.add(new TextComponent("Damage: " + (entry.itemStack.getMaxDamage() - entry.itemStack.getDamageValue()) + "/" + entry.itemStack.getMaxDamage()));
         }
 
-        list.add(Component.empty());
-        list.add(Component.translatable("sdm.market.user.buy.price", entry.price));
-        list.add(Component.translatable("sdm.market.user.buy.count", entry.count));
+        list.add(TextComponent.EMPTY);
+        list.add(new TranslatableComponent("sdm.market.user.buy.price", entry.price));
+        list.add(new TranslatableComponent("sdm.market.user.buy.count", entry.count));
     }
 
     @Override
-    public void draw(GuiGraphics graphics, Theme theme, int x, int y, int w, int h) {
+    public void draw(PoseStack graphics, Theme theme, int x, int y, int w, int h) {
         drawBackground(graphics, theme, x, y, w, h);
         var s = h >= 16 ? 16 : 8;
         var off = (h - s) / 2;

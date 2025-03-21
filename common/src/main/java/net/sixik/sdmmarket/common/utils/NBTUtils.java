@@ -1,6 +1,6 @@
 package net.sixik.sdmmarket.common.utils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -22,12 +22,12 @@ public class NBTUtils {
     }
 
     public static void putItem(CompoundTag nbt, String key, Item item){
-        nbt.putString(key, BuiltInRegistries.ITEM.getKey(item).toString());
+        nbt.putString(key, Registry.ITEM.getKey(item).toString());
     }
 
     public static Item getItem(CompoundTag nbt, String key){
         if(nbt.get(key) instanceof StringTag stringTag) {
-            return BuiltInRegistries.ITEM.getOptional(new ResourceLocation(stringTag.getAsString())).orElse(Items.BEDROCK);
+            return Registry.ITEM.getOptional(new ResourceLocation(stringTag.getAsString())).orElse(Items.BEDROCK);
         }
         return Items.AIR;
     }
@@ -38,7 +38,7 @@ public class NBTUtils {
 
     public static ItemStack getItemStack(CompoundTag nbt, String key){
         if(nbt.get(key) instanceof StringTag stringTag) {
-            Item d1 = BuiltInRegistries.ITEM.getOptional(new ResourceLocation(stringTag.getAsString())).orElse(Items.BEDROCK);
+            Item d1 = Registry.ITEM.getOptional(new ResourceLocation(stringTag.getAsString())).orElse(Items.BEDROCK);
             if(d1 == null) return ItemStack.EMPTY;
             return d1.getDefaultInstance();
         }

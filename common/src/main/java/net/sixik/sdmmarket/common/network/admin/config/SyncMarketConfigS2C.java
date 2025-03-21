@@ -40,7 +40,8 @@ public class SyncMarketConfigS2C extends BaseS2CMessage {
         MarketConfig config = MarketDataManager.GLOBAL_CONFIG_CLIENT;
         config.deserialize(nbt);
 
-        ConfigGroup group = new ConfigGroup("market_global_config", b -> {
+        ConfigGroup group = new ConfigGroup("market_global_config");
+        group.savedCallback =  b -> {
 
             if(b) {
                 new EditMarketConfigC2S(config.serialize()).sendToServer();
@@ -51,7 +52,8 @@ public class SyncMarketConfigS2C extends BaseS2CMessage {
                     configScreen.closeGui();
                 }
             }
-        });
+        };
+
         config.getConfig(group);
         new EditConfigScreen(group).openGui();
     }
