@@ -1,0 +1,195 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 21.03.2025, 15:47
+Description: Unexpected error
+
+java.lang.NullPointerException: Cannot invoke "net.sixik.sdmmarket.client.gui.user.entries.EntriesPanel.setSize(int, int)" because "this.entriesPanel" is null
+	at net.sixik.sdmmarket.client.gui.user.MarketUserScreen.alignWidgets(MarketUserScreen.java:83) ~[153581813343377490.jar%2386!/:?] {re:classloading}
+	at dev.ftb.mods.ftblibrary.ui.Panel.refreshWidgets(Panel.java:75) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at dev.ftb.mods.ftblibrary.ui.BaseScreen.initGui(BaseScreen.java:80) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at dev.ftb.mods.ftblibrary.ui.ScreenWrapper.init(ScreenWrapper.java:31) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at net.minecraft.client.gui.screens.Screen.init(Screen.java:423) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:computing_frames,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.setScreen(Minecraft.java:920) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at dev.ftb.mods.ftblibrary.ui.BaseScreen.openGui(BaseScreen.java:344) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at net.sixik.sdmmarket.SDMMarketClient.keyInput(SDMMarketClient.java:33) ~[153581813343377490.jar%2386!/:?] {re:classloading}
+	at java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:732) ~[?:?] {re:computing_frames}
+	at dev.architectury.event.EventFactory.invokeMethod(EventFactory.java:53) ~[architectury-forge-4.12.94.jar%2380!/:?] {re:classloading}
+	at dev.architectury.event.EventFactory$1.handleInvocation(EventFactory.java:62) ~[architectury-forge-4.12.94.jar%2380!/:?] {re:classloading}
+	at com.google.common.reflect.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:89) ~[guava-31.0.1-jre.jar%2324!/:?] {}
+	at jdk.proxy3.$Proxy44.tick(Unknown Source) ~[?:?] {}
+	at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:55) ~[architectury-forge-4.12.94.jar%2380!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.eventbus.ASMEventHandler_30_EventHandlerImplClient_event_ClientTickEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%234!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%234!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%234!/:?] {}
+	at net.minecraftforge.event.ForgeEventFactory.onPreClientTick(ForgeEventFactory.java:916) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2372%2379!/:?] {re:classloading}
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1621) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1021) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:665) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:205) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:classloading,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:24) ~[fmlloader-1.18.2-40.2.9.jar%230!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:149) [bootstraplauncher-1.0.0.jar:1.0.0+1.0.0+main.26de0917] {}
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?] {}
+	at dev.architectury.transformer.TransformerRuntime.main(TransformerRuntime.java:220) [architectury-transformer-5.2.87-runtime.jar:5.2.87] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.sixik.sdmmarket.client.gui.user.MarketUserScreen.alignWidgets(MarketUserScreen.java:83) ~[153581813343377490.jar%2386!/:?] {re:classloading}
+	at dev.ftb.mods.ftblibrary.ui.Panel.refreshWidgets(Panel.java:75) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at dev.ftb.mods.ftblibrary.ui.BaseScreen.initGui(BaseScreen.java:80) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at dev.ftb.mods.ftblibrary.ui.ScreenWrapper.init(ScreenWrapper.java:31) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at net.minecraft.client.gui.screens.Screen.init(Screen.java:423) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:computing_frames,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.setScreen(Minecraft.java:920) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at dev.ftb.mods.ftblibrary.ui.BaseScreen.openGui(BaseScreen.java:344) ~[ftb-library-forge-1802.3.11-build.177.jar%2385!/:1802.3.11-build.177] {re:classloading}
+	at net.sixik.sdmmarket.SDMMarketClient.keyInput(SDMMarketClient.java:33) ~[153581813343377490.jar%2386!/:?] {re:classloading}
+	at java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:732) ~[?:?] {re:computing_frames}
+	at dev.architectury.event.EventFactory.invokeMethod(EventFactory.java:53) ~[architectury-forge-4.12.94.jar%2380!/:?] {re:classloading}
+	at dev.architectury.event.EventFactory$1.handleInvocation(EventFactory.java:62) ~[architectury-forge-4.12.94.jar%2380!/:?] {re:classloading}
+	at com.google.common.reflect.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:89) ~[guava-31.0.1-jre.jar%2324!/:?] {}
+	at jdk.proxy3.$Proxy44.tick(Unknown Source) ~[?:?] {}
+	at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:55) ~[architectury-forge-4.12.94.jar%2380!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.eventbus.ASMEventHandler_30_EventHandlerImplClient_event_ClientTickEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%234!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%234!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%234!/:?] {}
+	at net.minecraftforge.event.ForgeEventFactory.onPreClientTick(ForgeEventFactory.java:916) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2372%2379!/:?] {re:classloading}
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Dev'/285, l='ClientLevel', x=-6.50, y=71.00, z=-5.50]]
+	Chunk stats: 729, 461
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,71,0), Section: (at 0,7,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 13739 game time, 13739 day time
+	Server brand: forge
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:407) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:architectury.mixins.json:MixinClientLevel,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2264) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:687) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:mixin,pl:accesstransformer:B,pl:unprotect:A,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:architectury.mixins.json:MixinMinecraft,pl:mixin:A,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:205) ~[forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.mappings.1_18_2.layered+hash.40359-v2-forge-1.18.2-40.2.9.jar%2373!/:?] {re:classloading,pl:unprotect:A,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:24) ~[fmlloader-1.18.2-40.2.9.jar%230!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-9.1.3.jar%235!/:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:149) [bootstraplauncher-1.0.0.jar:1.0.0+1.0.0+main.26de0917] {}
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?] {}
+	at dev.architectury.transformer.TransformerRuntime.main(TransformerRuntime.java:220) [architectury-transformer-5.2.87-runtime.jar:5.2.87] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: Default, Mod Resources
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18.2
+	Minecraft Version ID: 1.18.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.13, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 1618438256 bytes (1543 MiB) / 3248488448 bytes (3098 MiB) up to 4278190080 bytes (4080 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+	Identifier: Intel64 Family 6 Model 158 Stepping 10
+	Microarchitecture: Coffee Lake
+	Frequency (GHz): 3,70
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: Parsec Virtual Display Adapter
+	Graphics card #0 vendor: Parsec Cloud, Inc.
+	Graphics card #0 VRAM (MB): 0,00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: DriverVersion=0.45.0.0
+	Graphics card #1 name: AMD Radeon RX 7800 XT
+	Graphics card #1 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #1 VRAM (MB): 4095,00
+	Graphics card #1 deviceId: 0x747e
+	Graphics card #1 versionInfo: DriverVersion=32.0.12033.1030
+	Memory slot #0 capacity (MB): 8192,00
+	Memory slot #0 clockSpeed (GHz): 2,67
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192,00
+	Memory slot #1 clockSpeed (GHz): 2,67
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 34750,35
+	Virtual memory used (MB): 29726,60
+	Swap memory total (MB): 18432,00
+	Swap memory used (MB): 1791,18
+	JVM Flags: 0 total; 
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.2.2 SNAPSHOT
+	Backend API: AMD Radeon RX 7800 XT GL version 3.2.0 Core Profile Context 24.12.1.241127, ATI Technologies Inc.
+	Window size: 854x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: 
+	Current Language: English (US)
+	CPU: 12x Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz
+	ModLauncher: 9.1.3+9.1.3+main.9b69c82a
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		 mixin PLUGINSERVICE 
+		 eventbus PLUGINSERVICE 
+		 slf4jfixer PLUGINSERVICE 
+		 object_holder_definalize PLUGINSERVICE 
+		 runtime_enum_extender PLUGINSERVICE 
+		 unprotect PLUGINSERVICE 
+		 capability_token_subclass PLUGINSERVICE 
+		 accesstransformer PLUGINSERVICE 
+		 runtimedistcleaner PLUGINSERVICE 
+		 mixin TRANSFORMATIONSERVICE 
+		 fml TRANSFORMATIONSERVICE 
+		 ArchitecturyMixinRemapperInjector TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.18.2-40.2.9-minecraft-merged-1.18.2-loom.m|Minecraft                     |minecraft                     |1.18.2              |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |40.2.9              |DONE      |Manifest: NOSIGNATURE
+		153581813343377490.jar                            |generated_a54c7b6             |generated_a54c7b6             |1                   |DONE      |Manifest: NOSIGNATURE
+		architectury-forge-4.12.94.jar                    |Architectury                  |architectury                  |4.12.94             |DONE      |Manifest: NOSIGNATURE
+		ftb-library-forge-1802.3.11-build.177.jar         |FTB Library                   |ftblibrary                    |1802.3.11-build.177 |DONE      |Manifest: NOSIGNATURE
+		ftb-teams-forge-404468-4579981.jar                |FTB Teams                     |ftbteams                      |1802.2.11-build.107 |DONE      |Manifest: NOSIGNATURE
+		main                                              |SDM Market                    |sdm_market                    |6.4.1               |DONE      |Manifest: NOSIGNATURE
+		item-filters-309674-4553322.jar                   |Item Filters                  |itemfilters                   |1802.2.8-build.50   |DONE      |Manifest: NOSIGNATURE
+		ftb-quests-forge-289412-4760361.jar               |FTB Quests                    |ftbquests                     |1802.3.15-build.298 |DONE      |Manifest: NOSIGNATURE
+		sdm-shop-948942-5293015.jar                       |SDM ShopR                     |sdmshop                       |1.18.2-5.4.4        |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 7ecf3262-d8f4-4c10-be7d-fb93d03ea231
+	FML: 40.2
+	Forge: net.minecraftforge:40.2.9

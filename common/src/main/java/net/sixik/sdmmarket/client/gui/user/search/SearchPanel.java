@@ -244,7 +244,7 @@ public class SearchPanel extends Panel {
         });
 
         add(moneyField = new MarketTextField(this));
-        moneyField.setText(SDMMarket.moneyString(SDMShopR.getMoney(Minecraft.getInstance().player)));
+        moneyField.setText(SDMMarket.moneyString(SDMShopR.getClientMoney()));
 
         add(isEcnabledCheckBox = new MarketCheckBox(this){
             @Override

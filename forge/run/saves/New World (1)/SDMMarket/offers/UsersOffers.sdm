@@ -10,33 +10,7 @@
 							Damage: 0
 						}
 					}
-					entries: [{
-						item: {
-							id: "minecraft:bedrock"
-							Count: 1b
-						}
-						isSold: 0b
-						price: 0L
-						count: 1
-						ownerID: [I;
-							940439953
-							-167562164
-							-1601161573
-							-1389718966
-						]
-						categoryID: [I;
-							1637500787
-							-271300891
-							-1748673311
-							-835869417
-						]
-						entryID: [I;
-							-1285405314
-							-773435634
-							-1663933258
-							1423141028
-						]
-					}]
+					entries: [ ]
 				}
 				{
 					item: {
@@ -46,62 +20,7 @@
 							Damage: 0
 						}
 					}
-					entries: [
-						{
-							item: {
-								id: "minecraft:redstone_ore"
-								Count: 1b
-							}
-							isSold: 0b
-							price: 0L
-							count: 11
-							ownerID: [I;
-								940439953
-								-167562164
-								-1601161573
-								-1389718966
-							]
-							categoryID: [I;
-								1637500787
-								-271300891
-								-1748673311
-								-835869417
-							]
-							entryID: [I;
-								-1755518057
-								-129675465
-								-1928723594
-								129467274
-							]
-						}
-						{
-							item: {
-								id: "minecraft:redstone_ore"
-								Count: 1b
-							}
-							isSold: 0b
-							price: 0L
-							count: 11
-							ownerID: [I;
-								940439953
-								-167562164
-								-1601161573
-								-1389718966
-							]
-							categoryID: [I;
-								1637500787
-								-271300891
-								-1748673311
-								-835869417
-							]
-							entryID: [I;
-								-192690559
-								76171549
-								-1074996918
-								1093238433
-							]
-						}
-					]
+					entries: [ ]
 				}
 				{
 					item: {
@@ -111,33 +30,7 @@
 							Damage: 0
 						}
 					}
-					entries: [{
-						item: {
-							id: "minecraft:gold_ore"
-							Count: 1b
-						}
-						isSold: 0b
-						price: 0L
-						count: 1
-						ownerID: [I;
-							940439953
-							-167562164
-							-1601161573
-							-1389718966
-						]
-						categoryID: [I;
-							1637500787
-							-271300891
-							-1748673311
-							-835869417
-						]
-						entryID: [I;
-							-321953843
-							-1028436620
-							-1983079466
-							-821934776
-						]
-					}]
+					entries: [ ]
 				}
 			]
 			icon: {
@@ -164,6 +57,13 @@
 				{
 					item: {
 						id: "minecraft:barrier"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+				{
+					item: {
+						id: "minecraft:granite"
 						Count: 1b
 					}
 					entries: [ ]

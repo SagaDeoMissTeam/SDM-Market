@@ -1,0 +1,15 @@
+{
+	version: 1
+	uuid: "380df991f603344ca090369bad2a924a"
+	name: "Dev"
+	can_edit: false
+	lock: false
+	auto_pin: false
+	chapter_pinned: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	pinned_quests: [ ]
+}

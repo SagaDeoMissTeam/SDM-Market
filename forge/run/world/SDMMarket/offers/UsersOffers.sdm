@@ -1,0 +1,77 @@
+{
+	categories: [
+		{
+			entries: [
+				{
+					item: {
+						id: "minecraft:barrier"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+				{
+					item: {
+						id: "minecraft:barrier"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+				{
+					item: {
+						id: "minecraft:stone"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+				{
+					item: {
+						id: "minecraft:granite"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+				{
+					item: {
+						id: "minecraft:dirt"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+			]
+			icon: {
+				id: "minecraft:barrier"
+				Count: 1b
+			}
+			categoryName: "Empty Name"
+			categoryID: [I;
+				-2116683770
+				-472954594
+				-2020781809
+				-1252340611
+			]
+		}
+		{
+			entries: [{
+				item: {
+					id: "minecraft:dirt"
+					Count: 1b
+					tag: {
+						Damage: 0
+					}
+				}
+				entries: [ ]
+			}]
+			icon: {
+				id: "minecraft:barrier"
+				Count: 1b
+			}
+			categoryName: "Misc"
+			categoryID: [I;
+				1637500787
+				-271300891
+				-1748673311
+				-835869417
+			]
+		}
+	]
+}

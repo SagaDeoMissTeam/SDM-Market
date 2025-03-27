@@ -40,7 +40,7 @@ public class MarketUserBuyerInfoPanel extends Panel {
     public void addElements() {
         moneyField.setSize(this.width - 4, (TextRenderHelper.getTextHeight() + 1) * 2);
         moneyField.setPos(2,  36);
-        moneyField.setText(new TranslatableComponent("sdm.market.user.buy.player_money", SDMShopR.getMoney(Minecraft.getInstance().player)));
+        moneyField.setText(new TranslatableComponent("sdm.market.user.buy.player_money", SDMShopR.getClientMoney()));
         moneyField.setMaxWidth(this.width - 4);
 
         this.buyerBuyButton.setPos(4, this.height - (TextRenderHelper.getTextHeight() + 3));
@@ -48,7 +48,7 @@ public class MarketUserBuyerInfoPanel extends Panel {
     }
 
     public boolean canBuy() {
-        return panel.selectedEntry!= null && SDMShopR.getMoney(Minecraft.getInstance().player) >= panel.selectedEntry.price;
+        return panel.selectedEntry!= null && SDMShopR.getClientMoney() >= panel.selectedEntry.price;
     }
 
     public boolean isSelected() {

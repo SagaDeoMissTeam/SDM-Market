@@ -3,7 +3,7 @@
 		entries: [
 			{
 				item: {
-					id: "minecraft:barrier"
+					id: "minecraft:granite"
 					Count: 1b
 				}
 				minPrice: 0L
