@@ -1,7 +1,7 @@
 {
 	"market": {
 		"group": "ftblibrary:info",
-		"icon": "sdm_market:icons/market",
+		"icon": "sdm_market:textures/icons/market.png",
 		"x": 100,
 		"click": "sdm_market:open_gui",
 		"loading_screen": true

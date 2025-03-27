@@ -215,7 +215,7 @@ public class SellingMainUserPanel extends Panel {
                 public void onClicked(MouseButton button) {
                     if(button.isLeft() && countSellOffers > 0) {
                         try {
-                            for (int i = 0; i < countSellOffers; i++) {
+                            //for (int i = 0; i < countSellOffers; i++) {
                                 MarketUserEntry entry = new MarketUserEntry(panel.selectable.configCategory.categoryID);
                                 entry.itemStack = panel.selectable.selectedItem.copy();
                                 entry.price = priceSell;
@@ -223,8 +223,8 @@ public class SellingMainUserPanel extends Panel {
                                 entry.ownerID = Minecraft.getInstance().player.getGameProfile().getId();
 
 
-                                new CreateOfferC2S(entry.serialize()).sendToServer();
-                            }
+                                new CreateOfferC2S(countSellOffers,entry.serialize()).sendToServer();
+                            //}
 
                             ((SellingUserScreen) getGui()).mainUserPanel.priceSell = 0;
                             ((SellingUserScreen) getGui()).mainUserPanel.countItems = 0;

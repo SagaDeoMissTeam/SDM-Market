@@ -15,19 +15,26 @@ import net.sixik.sdmmarket.common.market.user.MarketUserEntry;
 import net.sixik.sdmmarket.common.market.user.MarketUserEntryList;
 import net.sixik.sdmmarket.common.data.MarketUserManager;
 import net.sixik.sdmmarket.common.network.MarketNetwork;
+import net.sixik.sdmmarket.common.network.user.newN.SendGetMarketEntriesC2S;
 import net.sixik.sdmmarket.common.utils.MarketItemHelper;
+
+import java.util.UUID;
 
 public class CreateOfferC2S extends BaseC2SMessage {
 
+    private final Integer count;
     private final CompoundTag nbt;
 
-    public CreateOfferC2S(CompoundTag nbt){
+    public CreateOfferC2S(Integer count,CompoundTag nbt){
+        this.count = count;
         this.nbt = nbt;
     }
 
     public CreateOfferC2S(FriendlyByteBuf buf){
+        this.count = buf.readInt();
         this.nbt = buf.readAnySizeNbt();
     }
+
 
     @Override
     public MessageType getType() {
@@ -36,53 +43,61 @@ public class CreateOfferC2S extends BaseC2SMessage {
 
     @Override
     public void write(FriendlyByteBuf buf) {
+        buf.writeInt(count);
         buf.writeNbt(nbt);
     }
 
     @Override
     public void handle(NetworkManager.PacketContext context) {
-        MarketUserEntry entry = new MarketUserEntry();
-        entry.deserialize(nbt);
 
-        MarketUserCategory category = MarketUserManager.getCategoryByID(entry.categoryID);
-        if(category == null) {
-            SDMMarket.LOGGER.error("Could not find category for entry " + entry.itemStack + " : " + entry.count);
-            return;
+        for (int i = 0; i < count; i++) {
+
+            MarketUserEntry entry = new MarketUserEntry();
+            entry.deserialize(nbt);
+
+            entry.entryID = UUID.randomUUID();
+
+            MarketUserCategory category = MarketUserManager.getCategoryByID(entry.categoryID);
+            if (category == null) {
+                SDMMarket.LOGGER.error("Could not find category for entry " + entry.itemStack + " : " + entry.count);
+                return;
+            }
+
+            MarketUserEntryList entryList = MarketUserManager.getEntryListByCategory(category, entry.itemStack);
+            if (entryList == null) {
+                SDMMarket.LOGGER.error("Could not find entrylist for category " + category.categoryName);
+                return;
+            }
+
+            MarketPlayerData.PlayerData data = MarketDataManager.getPlayerData(context.getPlayer().getServer(), context.getPlayer());
+            if (data == null) {
+                SDMMarket.LOGGER.error("Could not find player data for player " + context.getPlayer());
+                return;
+            }
+
+            entry.ownerID = data.playerID;
+
+            if (data.countOffers <= 0) {
+                SDMMarket.LOGGER.error("Player " + context.getPlayer() + " has no more offers!");
+                return;
+            }
+
+            System.out.println(entry.itemStack.toString() + "  " + entry.itemStack.getTag());
+
+            if (!MarketItemHelper.sellItem(context.getPlayer(), entry.count, entry.itemStack, !entry.itemStack.hasTag())) {
+                SDMMarket.LOGGER.error("Could not sell item for player " + context.getPlayer());
+                return;
+            }
+
+
+            entryList.addElement(entry);
+            data.countOffers -= 1;
+            data.playerOffers.add(entry.entryID);
+
+            MarketDataManager.savePlayer(context.getPlayer().getServer(), data.playerID);
+            MarketUserManager.syncUserData((ServerPlayer) context.getPlayer());
+
         }
-
-        MarketUserEntryList entryList = MarketUserManager.getEntryListByCategory(category, entry.itemStack);
-        if(entryList == null) {
-            SDMMarket.LOGGER.error("Could not find entrylist for category " + category.categoryName);
-            return;
-        }
-
-        MarketPlayerData.PlayerData data = MarketDataManager.getPlayerData(context.getPlayer().getServer(), context.getPlayer());
-        if(data == null) {
-            SDMMarket.LOGGER.error("Could not find player data for player " + context.getPlayer());
-            return;
-        }
-
-        entry.ownerID = data.playerID;
-
-        if(data.countOffers <= 0) {
-            SDMMarket.LOGGER.error("Player " + context.getPlayer() +  " has no more offers!");
-            return;
-        }
-
-        System.out.println(entry.itemStack.toString() + "  " + entry.itemStack.getTag());
-
-        if(!MarketItemHelper.sellItem(context.getPlayer(), entry.count, entry.itemStack, !entry.itemStack.hasTag())) {
-            SDMMarket.LOGGER.error("Could not sell item for player " + context.getPlayer());
-            return;
-        }
-
-        entryList.addElement(entry);
-        data.countOffers -= 1;
-        data.playerOffers.add(entry.entryID);
-
-        MarketDataManager.savePlayer(context.getPlayer().getServer(), data.playerID);
-        MarketUserManager.syncUserData((ServerPlayer) context.getPlayer());
-
 
         MarketAPI.syncMarket(context.getPlayer().getServer());
 

@@ -4,66 +4,14 @@
 			entries: [
 				{
 					item: {
-						id: "minecraft:bedrock"
-						Count: 1b
-						tag: {
-							Damage: 0
-						}
-					}
-					entries: [ ]
-				}
-				{
-					item: {
-						id: "minecraft:redstone_ore"
-						Count: 1b
-						tag: {
-							Damage: 0
-						}
-					}
-					entries: [ ]
-				}
-				{
-					item: {
-						id: "minecraft:gold_ore"
-						Count: 1b
-						tag: {
-							Damage: 0
-						}
-					}
-					entries: [ ]
-				}
-			]
-			icon: {
-				id: "minecraft:barrier"
-				Count: 1b
-			}
-			categoryName: "Misc"
-			categoryID: [I;
-				1637500787
-				-271300891
-				-1748673311
-				-835869417
-			]
-		}
-		{
-			entries: [
-				{
-					item: {
-						id: "minecraft:barrier"
-						Count: 1b
-					}
-					entries: [ ]
-				}
-				{
-					item: {
-						id: "minecraft:barrier"
-						Count: 1b
-					}
-					entries: [ ]
-				}
-				{
-					item: {
 						id: "minecraft:granite"
+						Count: 1b
+					}
+					entries: [ ]
+				}
+				{
+					item: {
+						id: "minecraft:barrier"
 						Count: 1b
 					}
 					entries: [ ]
@@ -79,6 +27,20 @@
 				-472954594
 				-2020781809
 				-1252340611
+			]
+		}
+		{
+			entries: [ ]
+			icon: {
+				id: "minecraft:barrier"
+				Count: 1b
+			}
+			categoryName: "Misc"
+			categoryID: [I;
+				1637500787
+				-271300891
+				-1748673311
+				-835869417
 			]
 		}
 	]
