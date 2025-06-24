@@ -1,0 +1,15 @@
+{
+	version: 1
+	uuid: "536d1cbd8fc23260be45c633da794025"
+	name: "Wobblecraft"
+	can_edit: false
+	lock: false
+	auto_pin: false
+	chapter_pinned: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	pinned_quests: [ ]
+}

@@ -49,6 +49,7 @@ public class MarketAPI {
             }
             if(screenWrapper.getGui() instanceof MarketUserBuyerScreen buyerScreen) {
                 buyerScreen.selectedEntry = null;
+                buyerScreen.updateEntries();
                 buyerScreen.infoPanel.addElements();
                 buyerScreen.entriesPanel.addEntries();
             }

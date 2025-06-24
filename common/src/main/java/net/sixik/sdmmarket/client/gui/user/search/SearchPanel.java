@@ -220,7 +220,6 @@ public class SearchPanel extends Panel {
             });
 
         }
-        System.out.println(MarketDataManager.GLOBAL_CONFIG_CLIENT.sellAnyItems);
 
         add(resetButton = new SimpleTextButton(this, new TextComponent("Reset"), Icon.EMPTY) {
             @Override

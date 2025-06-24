@@ -54,6 +54,7 @@ public class MarketUserBuyerScreen extends BaseScreen{
     public void addWidgets() {
         add(entriesPanel = new MarketUserBuyerEntriesPanel(this));
         entriesPanel.addWidgets();
+        entriesPanel.clearWidgets();
         add(infoPanel = new MarketUserBuyerInfoPanel(this));
         infoPanel.addWidgets();
         add(this.scrollEntriesPanel = new PanelScrollBar(this, entriesPanel){

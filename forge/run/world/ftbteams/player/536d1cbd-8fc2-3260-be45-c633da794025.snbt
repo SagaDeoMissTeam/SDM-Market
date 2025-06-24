@@ -1,0 +1,17 @@
+{
+	id: "536d1cbd-8fc2-3260-be45-c633da794025"
+	type: "player"
+	player_name: "Wobblecraft"
+	ranks: {
+		536d1cbd-8fc2-3260-be45-c633da794025: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "Wobblecraft"
+		"ftbteams:description": ""
+		"ftbteams:color": "#9059FF"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

@@ -1,0 +1,181 @@
+{
+	offers: [
+		[I;
+			581454013
+			-984068538
+			-1160556209
+			-350687744
+		]
+		[I;
+			-1744197884
+			328221134
+			-1202781670
+			-998818882
+		]
+		[I;
+			1361099462
+			-2126494960
+			-1326310872
+			-1856980837
+		]
+		[I;
+			-426082403
+			-783662033
+			-2039694118
+			1676426962
+		]
+		[I;
+			-865367634
+			1691110505
+			-1780368451
+			-1198891723
+		]
+		[I;
+			-294880929
+			385437609
+			-1961490820
+			889329723
+		]
+		[I;
+			578892966
+			812402985
+			-1271567263
+			967045387
+		]
+		[I;
+			-1683572893
+			187646826
+			-1377182066
+			-1609608798
+		]
+		[I;
+			-1375328816
+			882132627
+			-1829177394
+			-953090551
+		]
+	]
+	countMoneyByOperations: 0L
+	numberOfOperations: 0L
+	countOffers: 1
+	playerBasket: {
+		basketMoneyEntries: [
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					-1335803865
+					1591165820
+					-1224650989
+					580535078
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					-935422815
+					124339564
+					-1639913200
+					-1289343248
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					-1089890774
+					6310444
+					-1827504629
+					-1805142446
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					-1632353828
+					-1683929086
+					-2036044890
+					-1905732373
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					550198827
+					-537637160
+					-1921469786
+					-1573015732
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					2067693513
+					-1829286459
+					-1324890278
+					-1996571215
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					72702118
+					-1196865232
+					-1974934751
+					1990127097
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					997665003
+					-7125171
+					-2145428974
+					273956512
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					2063630695
+					23414217
+					-1378282623
+					1610905644
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					1232320234
+					-1946661554
+					-2126188828
+					-146024092
+				]
+			}
+			{
+				basketEntryType: "basketMoneyEntry"
+				moneyCount: 0L
+				basketEntryID: [I;
+					-1562300555
+					-194621854
+					-1211177158
+					-1110328608
+				]
+			}
+		]
+	}
+	playerID: [I;
+		1399659709
+		-1883098528
+		-1102723533
+		-629587931
+	]
+}

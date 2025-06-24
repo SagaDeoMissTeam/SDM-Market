@@ -33,7 +33,6 @@ public class SyncUserDataS2C extends BaseS2CMessage {
     @Override
     public void handle(NetworkManager.PacketContext context) {
         MarketDataManager.PLAYER_CLIENT_DATA.deserialize(nbt);
-
         MarketAPI.updateUI();
     }
 }
